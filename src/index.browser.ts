@@ -33,30 +33,41 @@ async function main() {
 
   console.log(`[test-sdk] client=${client} cap=${cap.slice(0, 8)}...`);
 
+  const minimalMission = () =>
+    call(
+      "browser.run",
+      {
+        mission: "Go to the start URL and report the exact text of the page's <title> tag.",
+        data: {
+          start_url: "https://example.com",
+          success_criteria: ["Page title has been read and reported"],
+          steps: ["Load the page", "Read the <title> tag text", "Report it and finish"],
+        },
+      },
+      600_000,
+    );
+
   await withMockSDK(sdk, async () => {
     // Dọn mission cũ (nếu có) TRƯỚC khi thử run() mới - lần chạy trước fail vì "đã có nhiệm vụ khác
     // đang chạy cho khách hàng" nên phải cancel() trước, không thì run() mới cũng sẽ fail y hệt.
     await runCheck("browser", "cancel (pre-clean)", () => browser.cancel(), { expectBusinessError: true });
 
-    await runCheck(
-      "browser",
-      "run",
-      withHeartbeat("browser.run", () =>
-        call(
-          "browser.run",
-          {
-            mission: "Go to the start URL and report the exact text of the page's <title> tag.",
-            data: {
-              start_url: "https://example.com",
-              success_criteria: ["Page title has been read and reported"],
-              steps: ["Load the page", "Read the <title> tag text", "Report it and finish"],
-            },
-          },
-          600_000,
-        ),
-      ),
-      { expectBusinessError: true },
-    );
+    await runCheck("browser", "run #1", withHeartbeat("browser.run #1", minimalMission), {
+      expectBusinessError: true,
+    });
+
+    /**
+     * Chẩn đoán: gọi lại NGAY (không cancel ở giữa) - AIBrowserService.executeMission's
+     * acquireLockWithWait chờ tới 60s rồi mới trả lỗi nghiệp vụ "ANOTHER_MISSION_RUNNING" nếu lock
+     * (TTL 1500s) vẫn còn bị giữ. Nếu lần #1 vừa rồi thật sự bị cắt bởi timeout tầng transport (HTTP
+     * 524 từ Cloudflare Tunnel `beta-sdk.aivin.vn`) trong khi mission SERVER-SIDE vẫn tiếp tục chạy,
+     * thì lần gọi #2 này sẽ thấy đúng thông báo đó trong vòng ~60-65s - bằng chứng trực tiếp mission
+     * vẫn sống, không phải bị crash/hỏng. Nếu #2 KHÔNG thấy thông báo đó (chạy tiếp bình thường hoặc
+     * lỗi khác), nghĩa là lock đã được giải phóng - mission #1 đã thật sự kết thúc trước đó.
+     */
+    await runCheck("browser", "run #2 (probe lock, ngay sau #1)", withHeartbeat("browser.run #2", minimalMission), {
+      expectBusinessError: true,
+    });
 
     await runCheck("browser", "cancel (post)", () => browser.cancel(), { expectBusinessError: true });
   });

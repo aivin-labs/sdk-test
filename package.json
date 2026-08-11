@@ -1,0 +1,19 @@
+{
+  "name": "test-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "ts-node -r dotenv/config src/index.ts",
+    "test:browser": "ts-node -r dotenv/config src/index.browser.ts"
+  },
+  "dependencies": {
+    "@aivin-labs/sdk": "file:../sdk",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4",
+    "@types/node": "^20.14.0"
+  }
+}

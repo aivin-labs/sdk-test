@@ -14,6 +14,15 @@ export async function testAutomation(workspaceId?: string): Promise<void> {
     { expectBusinessError: true },
   );
 
+  // workspace_id giả (khác hẳn "thiếu hẳn workspace_id" mà baseline có thể đang gặp) — round-trip
+  // phải trả mảng rỗng/lỗi nghiệp vụ "not found" sạch, không phải throw vì workspace không tồn tại.
+  await runCheck(
+    "automation",
+    "getJobs (nonexistent workspace_id)",
+    () => automation.getJobs({ workspace_id: "test-sdk-nonexistent-workspace-id", limit: 3 }),
+    { expectBusinessError: true },
+  );
+
   for (const method of ["createJob", "updateJob", "deleteJob", "executeById"]) {
     skip("automation", method, "creates/edits/triggers a REAL automation visible in the tenant UI, needs a real agent_id — won't guess");
   }

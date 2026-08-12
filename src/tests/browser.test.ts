@@ -18,6 +18,11 @@ import { runCheck } from "../helpers/report";
 export async function testBrowser(): Promise<void> {
   await runCheck("browser", "cancel", () => browser.cancel(), { expectBusinessError: true });
 
+  // (Cân nhắc thêm 1 case "mission thiếu data" nhưng bỏ — `start_url`/`steps` trong AIBrowserDTO đều
+  // OPTIONAL ("tùy chọn - agent tự điều hướng nếu không có", xem BrowserEvalTypes.ts), nên thiếu field
+  // không bị validate-reject sớm mà sẽ thật sự khởi động 1 mission agentic mở tốn tiền/thời gian —
+  // không an toàn hơn gì so với case `run` đầy đủ ở dưới, chỉ tốn thêm 1 lần chạy thật vô ích.)
+
   await runCheck(
     "browser",
     "run",

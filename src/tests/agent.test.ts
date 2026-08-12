@@ -1,5 +1,5 @@
 import { agent } from "@aivin-labs/sdk";
-import { runCheck, skip } from "../helpers/report";
+import { assertNoPrototypePollution, runCheck, skip } from "../helpers/report";
 
 /**
  * `get`/`status` không truyền id sẽ resolve theo agent hiện tại của invocation — mintCap không có
@@ -31,6 +31,38 @@ export async function testAgent(): Promise<void> {
     "agent",
     "resolveHil",
     () => agent.resolveHil({ session_id: "test-sdk-probe-missing-session", reply_id: "test-sdk-probe-missing-reply" }),
+    { expectBusinessError: true },
+  );
+
+  // reply với chuỗi rỗng — khác câu hỏi thật ở trên, phải là lỗi nghiệp vụ sạch hoặc round-trip
+  // được (tuỳ model), không phải throw kiểu transport vì AIEngine.prompt nhận request rỗng.
+  await runCheck("agent", "reply (empty string)", () => agent.reply(""), { expectBusinessError: true });
+
+  // resolveHil chỉ có reply_id, thiếu hẳn session_id — khác case "thiếu session thật" ở trên (vẫn có
+  // đủ 2 field), ở đây thiếu luôn 1 field bắt buộc, phải bị validate reject sạch chứ không phải
+  // throw vì code cố đọc field không tồn tại.
+  await runCheck(
+    "agent",
+    "resolveHil (missing session_id)",
+    () => agent.resolveHil({ reply_id: "test-sdk-probe-missing-reply" } as any),
+    { expectBusinessError: true },
+  );
+
+  // resolveHil's `payload` là kiểu `any` hoàn toàn tự do (khác `session_id`/`reply_id`, đều là
+  // string cố định) — bề mặt pollution duy nhất trong file này. Assert Object.prototype của CHÍNH
+  // process KHÔNG bị đầu độc sau round-trip.
+  await runCheck(
+    "agent",
+    "resolveHil (prototype pollution via payload)",
+    async () => {
+      const res = await agent.resolveHil({
+        session_id: "test-sdk-probe-missing-session",
+        reply_id: "test-sdk-probe-missing-reply",
+        payload: JSON.parse('{"__proto__":{"polluted":"yes"},"constructor":{"prototype":{"polluted2":"yes"}}}'),
+      });
+      assertNoPrototypePollution("agent.resolveHil()'s payload");
+      return res;
+    },
     { expectBusinessError: true },
   );
 

@@ -15,5 +15,14 @@ export async function testDatasource(): Promise<void> {
     expectBusinessError: true,
   });
 
+  // getSources với filter khớp source_id giả — khác case `{}` ở trên (không filter gì), phải trả
+  // mảng rỗng sạch, không phải throw vì lookup theo id không tồn tại.
+  await runCheck(
+    "datasource",
+    "getSources (nonexistent source_id filter)",
+    () => datasource.getSources({ source_id: "test-sdk-nonexistent-source-id" } as any),
+    { expectBusinessError: true },
+  );
+
   skip("datasource", "learn", "triggers a real learning job (async, resource-intensive) on a real data source — needs a real source_id, won't guess");
 }

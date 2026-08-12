@@ -223,7 +223,13 @@ export async function mintCap(claims: {
       Authorization: `Bearer ${apiKey}`,
       ...(clientSlug ? { "x-client-slug": clientSlug } : {}),
     },
-    body: JSON.stringify(claims),
+    // `ttl_sec` mặc định phía BE là 300s (`PluginController.ts`'s `mintTestCap`: `body.ttl_sec ?? 300`)
+    // - đủ cho suite lúc còn nhỏ, nhưng giờ đã đủ lớn (hàng trăm case, có case DEADLINE_EXCEEDED thật
+    // ăn ~28s mỗi lần) để tổng thời gian chạy thỉnh thoảng vượt mốc 5 phút đó. Khi cap hết hạn giữa
+    // chừng, MỌI call còn lại đồng loạt fail `BASE.CAPABILITY_TOKEN_MISSING_OR_INVALID` - không phải
+    // bug ở namespace nào đang test, chỉ là hết hạn token của chính lần chạy. 1200s (20 phút) đủ dư
+    // dả cho cả suite hiện tại lẫn phần mở rộng thêm sau này.
+    body: JSON.stringify({ ...claims, ttl_sec: 1200 }),
   });
 
   if (!res.ok) {

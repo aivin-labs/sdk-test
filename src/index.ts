@@ -2,6 +2,7 @@ import { SDKClient, session, withMockSDK } from "@aivin-labs/sdk";
 import { mintCap } from "./helpers/mintCap";
 import { printReport } from "./helpers/report";
 import { testAi } from "./tests/ai.test";
+import { testModels } from "./tests/models.test";
 import { testStore } from "./tests/store.test";
 import { testRedis } from "./tests/redis.test";
 import { testMongo } from "./tests/mongo.test";
@@ -67,6 +68,7 @@ async function main() {
     }
 
     await testAi();
+    await testModels();
     await testStore();
     await testRedis();
     await testMongo();

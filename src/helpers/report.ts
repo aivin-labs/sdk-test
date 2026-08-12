@@ -13,6 +13,35 @@ export interface TestResult {
 
 const results: TestResult[] = [];
 
+/**
+ * Throw this - instead of a plain `Error` - from inside a `runCheck()` callback when the FAILURE
+ * itself is the thing under test (an assertion on the response shape/behavior, e.g. "limit=0 should
+ * return an empty array" or "GLOBAL Object.prototype was polluted"), as opposed to just letting
+ * whatever the backend/transport raised propagate. Once caught below, a plain `Error` thrown from
+ * such an assertion is indistinguishable from a legitimate backend business-error response - with
+ * `expectBusinessError: true` it would silently be recorded as PASS, defeating the assertion
+ * entirely (this bit real cases: a confirmed sandbox-escape / prototype-pollution detection would
+ * have been reported as a passing check). `AssertionFailure` always fails the check, regardless of
+ * `expectBusinessError`.
+ */
+export class AssertionFailure extends Error {}
+
+/**
+ * Checks whether THIS process's global `Object.prototype` was polluted (e.g. a `JSON.parse`/merge
+ * somewhere along a round-trip treated a request/response's `__proto__`/`constructor.prototype` keys
+ * as literal object properties instead of inert data) and throws an `AssertionFailure` naming the
+ * round-tripped call if so. Call this right after any round-trip that sent a
+ * `{"__proto__":{"polluted":"yes"},"constructor":{"prototype":{"polluted2":"yes"}}}`-shaped payload
+ * through the SDK - shared here so every prototype-pollution probe across the test files checks/
+ * reports it the same way instead of duplicating the same few lines at each call site (~15 near-
+ * identical copies before this was pulled out).
+ */
+export function assertNoPrototypePollution(context: string): void {
+  if ((({} as any).polluted !== undefined) || (({} as any).polluted2 !== undefined)) {
+    throw new AssertionFailure(`GLOBAL Object.prototype was polluted by round-tripping ${context} through the SDK`);
+  }
+}
+
 /** Mốc thời gian module này được load - sát với lúc `npm test` bắt đầu chạy thật (trước
  *  `mintCap()`), dùng để tính tổng thời gian cả lần chạy trong report. */
 const runStartedAt = Date.now();
@@ -66,10 +95,11 @@ export async function runCheck(
       /UNAVAILABLE|wrong version number|ECONNREFUSED|CAPABILITY_TOKEN|unauthorized|DEADLINE_EXCEEDED|Too many failed attempts/i.test(
         msg,
       );
+    const isAssertionFailure = e instanceof AssertionFailure;
     results.push({
       namespace,
       method,
-      outcome: isTransportFailure || !opts?.expectBusinessError ? "FAIL" : "PASS",
+      outcome: isAssertionFailure || isTransportFailure || !opts?.expectBusinessError ? "FAIL" : "PASS",
       detail: msg.slice(0, 200),
       ms: Date.now() - start,
     });

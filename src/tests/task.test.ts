@@ -1,4 +1,4 @@
-import { task } from "@aivin-labs/sdk";
+import { call, task } from "@aivin-labs/sdk";
 import { AssertionFailure, runCheck } from "../helpers/report";
 
 /**
@@ -7,7 +7,18 @@ import { AssertionFailure, runCheck } from "../helpers/report";
  * tenant). `update`/`getById`/`addComment`/`requestSupport` cần task thật đang tồn tại lâu dài
  * hơn 1 lần chạy nên không test riêng — round-trip create+delete đã đủ chứng minh namespace hoạt
  * động đúng.
+ *
+ * `TaskService.createTask` luôn gọi AI (`_autoFillNewTaskInfo`) để tự điền thông tin còn thiếu từ
+ * title/description trước khi lưu - cùng chuỗi fallback tier "medium" (thử `ollama` local trước
+ * rồi mới sang `openllm`) mà `table.smartQuery`/`batchUpdateByAI` gặp phải. Ở môi trường không có
+ * Ollama chạy sẵn, bước thử-rồi-fail đó ăn gần hết timeout mặc định 30s của SDK trước khi kịp
+ * fallback, nên dùng `call()` (escape hatch) với timeout dài hơn cho 2 case thật sự tạo task (đơn
+ * và 5x concurrent) - case "empty title" fail sớm ở validate nên không cần.
  */
+const CREATE_TASK_TIMEOUT_MS = 90_000;
+function createTask(params: { title: string; content?: string; workspace_id: string }) {
+  return call("task.createTask", params, CREATE_TASK_TIMEOUT_MS);
+}
 export async function testTask(workspaceId?: string): Promise<void> {
   let createdTaskId: string | undefined;
 
@@ -15,7 +26,7 @@ export async function testTask(workspaceId?: string): Promise<void> {
     "task",
     "create",
     async () => {
-      const created = await task.create({
+      const created = await createTask({
         title: `test-sdk probe ${Date.now()}`,
         content: "Auto-created by test-sdk to verify the round-trip, deleted again right after.",
         workspace_id: workspaceId as string,
@@ -71,7 +82,7 @@ export async function testTask(workspaceId?: string): Promise<void> {
       const marker = `race-${Date.now()}`;
       const settled = await Promise.allSettled(
         Array.from({ length: 5 }, (_, i) =>
-          task.create({ title: `test-sdk ${marker} #${i}`, workspace_id: workspaceId as string }),
+          createTask({ title: `test-sdk ${marker} #${i}`, workspace_id: workspaceId as string }),
         ),
       );
       const created = settled

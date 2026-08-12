@@ -123,50 +123,86 @@ function icon(outcome: TestOutcome): string {
   return outcome === "PASS" ? "✅" : outcome === "FAIL" ? "❌" : "⏭️";
 }
 
-export function printReport(): boolean {
-  const totalDurationMs = Date.now() - runStartedAt;
-  const byNamespace = new Map<string, TestResult[]>();
-  for (const r of results) {
-    if (!byNamespace.has(r.namespace)) byNamespace.set(r.namespace, []);
-    byNamespace.get(r.namespace)!.push(r);
+interface Counts {
+  total: number;
+  pass: number;
+  fail: number;
+  skip: number;
+}
+
+interface ReportSummary extends Counts {
+  totalDurationMs: number;
+}
+
+/** "prompt (empty string)" -> "prompt" - nhiều case (edge-case, adversarial input, ...) của cùng
+ *  một hàm SDK được đặt tên "method (mô tả case)" ở call site; bóc phần mô tả ra để gom case theo
+ *  hàm gốc thay vì đếm mỗi biến thể như một hàm riêng. */
+function baseMethodName(method: string): string {
+  return method.replace(/\s*\([^)]*\)\s*$/, "").trim();
+}
+
+function tally(items: TestResult[]): Counts {
+  const c: Counts = { total: items.length, pass: 0, fail: 0, skip: 0 };
+  for (const r of items) {
+    if (r.outcome === "PASS") c.pass++;
+    else if (r.outcome === "FAIL") c.fail++;
+    else c.skip++;
   }
+  return c;
+}
 
-  let totalPass = 0;
-  let totalFail = 0;
-  let totalSkip = 0;
+function groupBy<T>(items: T[], key: (item: T) => string): Map<string, T[]> {
+  const map = new Map<string, T[]>();
+  for (const item of items) {
+    if (!map.has(key(item))) map.set(key(item), []);
+    map.get(key(item))!.push(item);
+  }
+  return map;
+}
 
+/** namespace -> method gốc -> các case (kết quả) của method đó trong namespace. */
+function groupByNamespaceAndMethod(items: TestResult[]): Map<string, Map<string, TestResult[]>> {
+  const byNamespace = groupBy(items, (r) => r.namespace);
+  const nested = new Map<string, Map<string, TestResult[]>>();
+  for (const [ns, nsItems] of byNamespace) {
+    nested.set(ns, groupBy(nsItems, (r) => baseMethodName(r.method)));
+  }
+  return nested;
+}
+
+function logConsoleReport(byNamespace: Map<string, TestResult[]>, untouched: string[], summary: ReportSummary): void {
   console.log("\n" + "=".repeat(70));
   console.log("SDK TEST REPORT");
   console.log("=".repeat(70));
 
   for (const [ns, items] of byNamespace) {
-    console.log(`\n[${ns}]`);
+    const c = tally(items);
+    console.log(`\n[${ns}] ${c.pass} PASS, ${c.fail} FAIL, ${c.skip} SKIP (${c.total} cases)`);
     for (const r of items) {
       console.log(`  ${icon(r.outcome)} ${r.method} (${r.ms}ms) — ${r.detail}`);
-      if (r.outcome === "PASS") totalPass++;
-      else if (r.outcome === "FAIL") totalFail++;
-      else totalSkip++;
     }
   }
 
-  const untouched = ALL_NAMESPACES.filter((ns) => !byNamespace.has(ns));
   if (untouched.length) {
     console.log(`\n[untested] ${untouched.join(", ")}`);
   }
 
   console.log("\n" + "=".repeat(70));
-  console.log(`TOTAL: ${totalPass} PASS, ${totalFail} FAIL, ${totalSkip} SKIP — ${formatDuration(totalDurationMs)}`);
+  console.log(`TOTAL: ${summary.pass} PASS, ${summary.fail} FAIL, ${summary.skip} SKIP — ${formatDuration(summary.totalDurationMs)}`);
   console.log("=".repeat(70) + "\n");
+}
 
-  const reportPath = writeReportFiles(byNamespace, untouched, {
-    totalPass,
-    totalFail,
-    totalSkip,
-    totalDurationMs,
-  });
+export function printReport(): boolean {
+  const summary: ReportSummary = { ...tally(results), totalDurationMs: Date.now() - runStartedAt };
+  const byNamespace = groupBy(results, (r) => r.namespace);
+  const untouched = ALL_NAMESPACES.filter((ns) => !byNamespace.has(ns));
+
+  logConsoleReport(byNamespace, untouched, summary);
+
+  const reportPath = writeReportFiles(byNamespace, untouched, summary);
   console.log(`[test-sdk] Report written to ${reportPath.json}\n                       and ${reportPath.md}`);
 
-  return totalFail === 0;
+  return summary.fail === 0;
 }
 
 /**
@@ -177,41 +213,67 @@ export function printReport(): boolean {
 function writeReportFiles(
   byNamespace: Map<string, TestResult[]>,
   untouched: string[],
-  summary: { totalPass: number; totalFail: number; totalSkip: number; totalDurationMs: number },
+  summary: ReportSummary,
 ): { json: string; md: string } {
   const outDir = path.join(process.cwd(), ".test");
   fs.mkdirSync(outDir, { recursive: true });
   const timestamp = new Date().toISOString();
 
+  const byNamespaceAndMethod = groupByNamespaceAndMethod(results);
+  const namespaceSummary = [...byNamespace].map(([ns, items]) => ({ namespace: ns, ...tally(items) }));
+  const functionSummary = [...byNamespaceAndMethod].flatMap(([ns, byMethod]) =>
+    [...byMethod].map(([method, items]) => ({ namespace: ns, method, ...tally(items) })),
+  );
+
   const jsonPath = path.join(outDir, "report.json");
   fs.writeFileSync(
     jsonPath,
     JSON.stringify(
-      { timestamp, duration_ms: summary.totalDurationMs, summary, untested_namespaces: untouched, results },
+      {
+        timestamp,
+        duration_ms: summary.totalDurationMs,
+        summary,
+        untested_namespaces: untouched,
+        namespace_summary: namespaceSummary,
+        function_summary: functionSummary,
+        results,
+      },
       null,
       2,
     ),
   );
 
   const mdPath = path.join(outDir, "report.md");
-  fs.writeFileSync(mdPath, buildMarkdown(timestamp, byNamespace, untouched, summary));
+  fs.writeFileSync(mdPath, buildMarkdown(timestamp, byNamespace, byNamespaceAndMethod, untouched, summary));
 
   return { json: jsonPath, md: mdPath };
 }
 
-function buildMarkdown(
-  timestamp: string,
-  byNamespace: Map<string, TestResult[]>,
-  untouched: string[],
-  summary: { totalPass: number; totalFail: number; totalSkip: number; totalDurationMs: number },
-): string {
+function buildSummaryTable(namespaceSummary: { namespace: string; total: number; pass: number; fail: number; skip: number }[]): string[] {
   const lines: string[] = [];
-  lines.push(`# test-sdk report`, "", `Run: ${timestamp}`, `Duration: ${formatDuration(summary.totalDurationMs)}`, "");
-  lines.push(
-    `**${summary.totalPass} PASS, ${summary.totalFail} FAIL, ${summary.totalSkip} SKIP**`,
-    "",
-  );
+  lines.push("| Namespace | Cases | Pass | Fail | Skip |");
+  lines.push("|---|---|---|---|---|");
+  for (const s of namespaceSummary) {
+    lines.push(`| ${s.namespace} | ${s.total} | ${s.pass} | ${s.fail} | ${s.skip} |`);
+  }
+  return lines;
+}
 
+function buildFunctionSummaryTable(byNamespaceAndMethod: Map<string, Map<string, TestResult[]>>): string[] {
+  const lines: string[] = [];
+  lines.push("| Namespace | Function | Cases | Pass | Fail | Skip |");
+  lines.push("|---|---|---|---|---|---|");
+  for (const [ns, byMethod] of byNamespaceAndMethod) {
+    for (const [method, items] of byMethod) {
+      const c = tally(items);
+      lines.push(`| ${ns} | ${method} | ${c.total} | ${c.pass} | ${c.fail} | ${c.skip} |`);
+    }
+  }
+  return lines;
+}
+
+function buildDetailTable(byNamespace: Map<string, TestResult[]>): string[] {
+  const lines: string[] = [];
   lines.push("| Namespace | Method | Outcome | Time | Detail |");
   lines.push("|---|---|---|---|---|");
   for (const [ns, items] of byNamespace) {
@@ -220,7 +282,25 @@ function buildMarkdown(
       lines.push(`| ${ns} | ${r.method} | ${icon(r.outcome)} ${r.outcome} | ${r.ms}ms | ${detail} |`);
     }
   }
-  lines.push("");
+  return lines;
+}
+
+function buildMarkdown(
+  timestamp: string,
+  byNamespace: Map<string, TestResult[]>,
+  byNamespaceAndMethod: Map<string, Map<string, TestResult[]>>,
+  untouched: string[],
+  summary: ReportSummary,
+): string {
+  const namespaceSummary = [...byNamespace].map(([ns, items]) => ({ namespace: ns, ...tally(items) }));
+
+  const lines: string[] = [];
+  lines.push(`# test-sdk report`, "", `Run: ${timestamp}`, `Duration: ${formatDuration(summary.totalDurationMs)}`, "");
+  lines.push(`**${summary.pass} PASS, ${summary.fail} FAIL, ${summary.skip} SKIP (${summary.total} cases)**`, "");
+
+  lines.push(`## Summary by namespace`, "", ...buildSummaryTable(namespaceSummary), "");
+  lines.push(`## Summary by namespace / function`, "", ...buildFunctionSummaryTable(byNamespaceAndMethod), "");
+  lines.push(`## Case detail`, "", ...buildDetailTable(byNamespace), "");
 
   if (untouched.length) {
     lines.push(

@@ -95,7 +95,7 @@ export async function testModels(): Promise<void> {
   }
 
   skip("models", "embedding/BAAI/bge-m3", "already covered as the default embedding model in ai.test.ts (getEmbedding/getEmbeddings) — only 1 model configured for this tier, nothing extra to probe");
-  skip("models", "rerank/BAAI/bge-reranker-v2-m3", "AISDK.ts's register('rerank', ...) doesn't forward params.opts to AIEngine.rerank — model can't be overridden through the SDK, and only 1 model is configured anyway (already covered in ai.test.ts)");
+  skip("models", "rerank/BAAI/bge-reranker-v2-m3", "already covered as the default rerank model in ai.test.ts (rerank) — only 1 model configured for this tier, nothing extra to probe (AISDK.ts's register('rerank', ...) forwards params.opts now, so model override IS possible via SDK, just nothing to override to here)");
   skip("models", "realtime/*", "WebSocket voice session, not a fit for ai.prompt's simple request/response round-trip");
   skip("models", "tts/*, stt/*", "needs a real audio payload to decode/produce meaningfully — no safe fake audio like OCR's 1x1 PNG, and not the focus of this 'which LLM models work' probe");
 }

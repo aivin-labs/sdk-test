@@ -1,76 +1,1614 @@
 {
-  "timestamp": "2026-08-12T07:13:36.375Z",
-  "duration_ms": 315006,
+  "timestamp": "2026-08-12T13:01:56.705Z",
+  "duration_ms": 137290,
   "summary": {
-    "totalPass": 279,
-    "totalFail": 4,
-    "totalSkip": 21,
-    "totalDurationMs": 315006
+    "total": 306,
+    "pass": 284,
+    "fail": 0,
+    "skip": 22,
+    "totalDurationMs": 137290
   },
   "untested_namespaces": [],
+  "namespace_summary": [
+    {
+      "namespace": "ai",
+      "total": 34,
+      "pass": 34,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "total": 21,
+      "pass": 17,
+      "fail": 0,
+      "skip": 4
+    },
+    {
+      "namespace": "store",
+      "total": 13,
+      "pass": 12,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "redis",
+      "total": 24,
+      "pass": 24,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "total": 12,
+      "pass": 12,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "knowledge",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "total": 18,
+      "pass": 18,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "usage",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "datasource",
+      "total": 4,
+      "pass": 3,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "causality",
+      "total": 7,
+      "pass": 7,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "attachment",
+      "total": 9,
+      "pass": 3,
+      "fail": 0,
+      "skip": 6
+    },
+    {
+      "namespace": "workspace",
+      "total": 11,
+      "pass": 11,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "total": 11,
+      "pass": 8,
+      "fail": 0,
+      "skip": 3
+    },
+    {
+      "namespace": "browser",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "project",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "total": 37,
+      "pass": 36,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "task",
+      "total": 7,
+      "pass": 7,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "total": 19,
+      "pass": 18,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "session",
+      "total": 14,
+      "pass": 14,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "realtime",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "queue",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "notification",
+      "total": 18,
+      "pass": 18,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "resource",
+      "total": 6,
+      "pass": 6,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "setting",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "automation",
+      "total": 6,
+      "pass": 2,
+      "fail": 0,
+      "skip": 4
+    },
+    {
+      "namespace": "code",
+      "total": 5,
+      "pass": 5,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "total": 12,
+      "pass": 12,
+      "fail": 0,
+      "skip": 0
+    }
+  ],
+  "function_summary": [
+    {
+      "namespace": "ai",
+      "method": "prompt",
+      "total": 16,
+      "pass": 16,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "promptStream",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "getEmbedding",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "getEmbeddings",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "rerank",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "getModels",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "calculateTokens",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "ocr",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "image",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "ai",
+      "method": "video",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/openllm:qwen3.7-max",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/openllm:deepseek-v4-pro",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/claude:claude-sonnet-4.6",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/gemini:gemini-3.5-pro",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/openai:gpt-5.5",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/openai:o3-pro",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/claude:claude-opus-4.8",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "xhard/gemini:gemini-3.5-deep-think",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "medium/openllm:qwen3.7-plus",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "medium/claude:claude-haiku-4.5",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "medium/gemini:gemini-3.5-flash",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "medium/openai:gpt-5.5-mini",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "light/openllm:qwen-turbo",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "nano/vllm:Qwen/Qwen2.5-3B-Instruct-AWQ",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "code/openllm:qwen3-coder-plus",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "vl/openllm:qwen-vl-plus",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "vl/openllm:qwen-vl-max",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "models",
+      "method": "embedding/BAAI/bge-m3",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "models",
+      "method": "rerank/BAAI/bge-reranker-v2-m3",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "models",
+      "method": "realtime/*",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "models",
+      "method": "tts/*, stt/*",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "store",
+      "method": "set",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "store",
+      "method": "get",
+      "total": 2,
+      "pass": 1,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "store",
+      "method": "query",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "store",
+      "method": "count",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "store",
+      "method": "search",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "store",
+      "method": "del",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "store",
+      "method": "set+get",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "set",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "get",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "incr",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "exists",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "del",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "setex",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "incrby",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "decrby",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "hset",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "hget",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "hgetall",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "hdel",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "redis",
+      "method": "keys",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "create",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "findOne",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "find",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "countDocuments",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "updateOne",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "deleteOne",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "mongo",
+      "method": "create+findOne",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "knowledge",
+      "method": "search",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "index",
+      "total": 5,
+      "pass": 5,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "search",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "searchBatch",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "get",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "matchBatch",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "delete",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "requestCollection",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "getCollectionStatus",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "similarity",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "vector",
+      "method": "normalize",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "usage",
+      "method": "checkBalance",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "usage",
+      "method": "getUsage",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "datasource",
+      "method": "getSources",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "datasource",
+      "method": "getDomains",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "datasource",
+      "method": "learn",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "causality",
+      "method": "think",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "causality",
+      "method": "search",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "causality",
+      "method": "absorb",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "attachment",
+      "method": "search",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "attachment",
+      "method": "upload",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "attachment",
+      "method": "deepResearch",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "attachment",
+      "method": "evaluate",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "attachment",
+      "method": "queryTabularData",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "attachment",
+      "method": "queryMediaTimestamp",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "attachment",
+      "method": "extract",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "workspace",
+      "method": "get",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "getByIds",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "getMembers",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "checkPermission",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "getPluginConfig",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "searchAgents",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "workspace",
+      "method": "updatePlugin",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "get",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "status",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "reply",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "tell",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "resolveHil",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "agent",
+      "method": "cancel",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "agent",
+      "method": "delegate",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "agent",
+      "method": "processMessage",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "browser",
+      "method": "cancel",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "browser",
+      "method": "run",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "project",
+      "method": "search",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "project",
+      "method": "get",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "getAllTables",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "createTable",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "getTable",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "updateTable",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "addRow",
+      "total": 5,
+      "pass": 5,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "getRow",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "updateRow",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "getRows",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "bulkAddRows",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "batchUpdateRows",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "rollback",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "batchDeleteRows",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "searchSemantic",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "smartQuery",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "batchUpdateByAI",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "getTableStats",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "countRows",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "exportTable",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "deduplicateTable",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "backfillColumn",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "formatRowsForContext",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "deleteRow",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "table",
+      "method": "ensureTable",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "table",
+      "method": "deleteTable",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "task",
+      "method": "create",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "task",
+      "method": "listMine",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "task",
+      "method": "delete",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "getRecent",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "save",
+      "total": 6,
+      "pass": 6,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "save+getById",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "getList",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "search",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "init",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "getById",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "update",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "message",
+      "method": "stream",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "session",
+      "method": "getList",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "get",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "updateStatus",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "update",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "markAsSeen",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "updateAgent",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "newSession",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "session",
+      "method": "create",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "realtime",
+      "method": "publish",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "queue",
+      "method": "scheduleJob",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "notification",
+      "method": "subscribeTopic",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "notification",
+      "method": "unsubscribeTopic",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "notification",
+      "method": "push",
+      "total": 9,
+      "pass": 9,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "notification",
+      "method": "sendMail",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "resource",
+      "method": "upload",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "resource",
+      "method": "remove",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "setting",
+      "method": "get",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "setting",
+      "method": "getMerchantConfig",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "automation",
+      "method": "getJobs",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "automation",
+      "method": "createJob",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "automation",
+      "method": "updateJob",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "automation",
+      "method": "deleteJob",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "automation",
+      "method": "executeById",
+      "total": 1,
+      "pass": 0,
+      "fail": 0,
+      "skip": 1
+    },
+    {
+      "namespace": "code",
+      "method": "executeLogic",
+      "total": 5,
+      "pass": 5,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "method": "list",
+      "total": 1,
+      "pass": 1,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "method": "search",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "method": "get",
+      "total": 2,
+      "pass": 2,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "method": "create",
+      "total": 3,
+      "pass": 3,
+      "fail": 0,
+      "skip": 0
+    },
+    {
+      "namespace": "file",
+      "method": "del",
+      "total": 4,
+      "pass": 4,
+      "fail": 0,
+      "skip": 0
+    }
+  ],
   "results": [
     {
       "namespace": "ai",
       "method": "prompt",
       "outcome": "PASS",
       "detail": "Ok",
-      "ms": 65
+      "ms": 691
     },
     {
       "namespace": "ai",
       "method": "promptStream",
       "outcome": "PASS",
       "detail": "{\"chunkCount\":1,\"textLength\":9,\"preview\":\"1 2 3 4 5\"}",
-      "ms": 65
+      "ms": 302
     },
     {
       "namespace": "ai",
       "method": "getEmbedding",
       "outcome": "PASS",
       "detail": "{\"0\":-0.04829481616616249,\"1\":0.01439779531210661,\"2\":-0.055122435092926025,\"3\":-0.023896675556898117,\"4\":-0.028757017105817795,\"5\":-0.035912517458200",
-      "ms": 132
+      "ms": 75
     },
     {
       "namespace": "ai",
       "method": "getEmbeddings",
       "outcome": "PASS",
       "detail": "array(2)",
-      "ms": 157
+      "ms": 93
     },
     {
       "namespace": "ai",
       "method": "rerank",
       "outcome": "PASS",
       "detail": "array(2)",
-      "ms": 60
+      "ms": 317
     },
     {
       "namespace": "ai",
       "method": "getModels",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 67
+      "ms": 61
     },
     {
       "namespace": "ai",
       "method": "calculateTokens",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 60
+      "ms": 59
     },
     {
       "namespace": "ai",
       "method": "ocr",
       "outcome": "PASS",
-      "detail": "[AIEngine] OCR driver not configured",
-      "ms": 64
+      "detail": "",
+      "ms": 109
     },
     {
       "namespace": "ai",
       "method": "image",
       "outcome": "PASS",
       "detail": "[AIEngine.image] fal/flux-1.1-pro does not support image generation",
-      "ms": 86
+      "ms": 84
     },
     {
       "namespace": "ai",
@@ -84,42 +1622,42 @@
       "method": "prompt (empty string)",
       "outcome": "PASS",
       "detail": "[AIEngine] prompt: request/quest is required",
-      "ms": 58
+      "ms": 53
     },
     {
       "namespace": "ai",
       "method": "prompt (message array)",
       "outcome": "PASS",
       "detail": "No driver found for provider vllm",
-      "ms": 74
+      "ms": 172
     },
     {
       "namespace": "ai",
       "method": "prompt (huge input ~20k chars)",
       "outcome": "PASS",
-      "detail": "The text appears to be filler content (\"lorem ipsum\") without any meaningful information. Therefore, a summary is not possible as there are no key poi",
-      "ms": 71
+      "detail": "The text appears to be filler content (\"lorem ipsum\") without any meaningful information. A summary of such text would simply state that it consists o",
+      "ms": 1094
     },
     {
       "namespace": "ai",
       "method": "prompt (schema/structured output)",
       "outcome": "PASS",
       "detail": "{\"name\":\"An\",\"age\":30}",
-      "ms": 62
+      "ms": 605
     },
     {
       "namespace": "ai",
       "method": "prompt (max_tokens=1, temperature=0)",
       "outcome": "PASS",
       "detail": "Once",
-      "ms": 63
+      "ms": 222
     },
     {
       "namespace": "ai",
       "method": "promptStream (empty string)",
       "outcome": "PASS",
       "detail": "[AIEngine] prompt: request/quest is required",
-      "ms": 60
+      "ms": 59
     },
     {
       "namespace": "ai",
@@ -133,14 +1671,14 @@
       "method": "getEmbeddings (empty array)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 59
+      "ms": 55
     },
     {
       "namespace": "ai",
       "method": "rerank (empty docs)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 58
+      "ms": 55
     },
     {
       "namespace": "ai",
@@ -154,20 +1692,20 @@
       "method": "calculateTokens (empty text)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 59
+      "ms": 55
     },
     {
       "namespace": "ai",
       "method": "calculateTokens (missing text field)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 61
+      "ms": 56
     },
     {
       "namespace": "ai",
       "method": "ocr (malformed base64 payload)",
       "outcome": "PASS",
-      "detail": "[AIEngine] OCR driver not configured",
+      "detail": "",
       "ms": 60
     },
     {
@@ -175,196 +1713,196 @@
       "method": "image (invalid media_tier)",
       "outcome": "PASS",
       "detail": "[AIEngine.image] fal/flux-1.1-pro does not support image generation",
-      "ms": 64
+      "ms": 71
     },
     {
       "namespace": "ai",
       "method": "prompt (5x concurrent)",
       "outcome": "PASS",
       "detail": "{\"ok\":5}",
-      "ms": 71
+      "ms": 1412
     },
     {
       "namespace": "ai",
       "method": "prompt (instructions actually enforced)",
       "outcome": "PASS",
       "detail": "{\"text\":\"BANANA\"}",
-      "ms": 683
+      "ms": 270
     },
     {
       "namespace": "ai",
       "method": "prompt (temperature out of valid range)",
       "outcome": "PASS",
-      "detail": "```\nOK\n```",
-      "ms": 401
+      "detail": "OK",
+      "ms": 236
     },
     {
       "namespace": "ai",
       "method": "prompt (negative max_tokens)",
       "outcome": "PASS",
       "detail": "Ok",
-      "ms": 204
+      "ms": 228
     },
     {
       "namespace": "ai",
       "method": "prompt (adversarial unicode: ZWJ/RTL-override/stacked combining marks)",
       "outcome": "PASS",
-      "detail": "The provided string is a combination of various Unicode characters and file names. Here's the breakdown:\n\n1. **\"é́́́́\":** This represents an 'e' with",
-      "ms": 776
+      "detail": "The provided string contains a mix of special characters and file names. Here is the decoded version:\n\n```\n\"é\" + gnp.exe + \"null-byte-embedded\"\n```\n\nT",
+      "ms": 815
     },
     {
       "namespace": "ai",
       "method": "prompt (temperature = NaN)",
       "outcome": "PASS",
       "detail": "Ok",
-      "ms": 75
+      "ms": 231
     },
     {
       "namespace": "ai",
       "method": "prompt (max_tokens = Infinity)",
       "outcome": "PASS",
       "detail": "Ok",
-      "ms": 94
+      "ms": 201
     },
     {
       "namespace": "ai",
       "method": "prompt (whitespace-only string)",
       "outcome": "PASS",
-      "detail": "It seems like you've provided placeholder tags `<user_input>` without any actual content. Could you please provide more details so I can assist you be",
-      "ms": 58
+      "detail": "It seems like you've provided placeholder tags for user input without any actual content. Could you please provide more details or a specific question",
+      "ms": 595
     },
     {
       "namespace": "ai",
       "method": "prompt (lone UTF-16 surrogate)",
       "outcome": "PASS",
-      "detail": "### Test SDK Probe with Lone Surrogate: \"�\" No Pair\n\nThe input you provided mentions",
-      "ms": 60
+      "detail": "The input appears to be describing a scenario where a test using the \"test-sdk\" tool is encountering",
+      "ms": 423
     },
     {
       "namespace": "ai",
       "method": "prompt (15x concurrent)",
       "outcome": "PASS",
       "detail": "{\"ok\":15}",
-      "ms": 3083
+      "ms": 2912
     },
     {
       "namespace": "models",
       "method": "xhard/openllm:qwen3.7-max",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 68
+      "ms": 60
     },
     {
       "namespace": "models",
       "method": "xhard/openllm:deepseek-v4-pro",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 91
+      "ms": 59
     },
     {
       "namespace": "models",
       "method": "xhard/claude:claude-sonnet-4.6",
       "outcome": "PASS",
       "detail": "No driver found for provider claude",
-      "ms": 63
+      "ms": 56
     },
     {
       "namespace": "models",
       "method": "xhard/gemini:gemini-3.5-pro",
       "outcome": "PASS",
       "detail": "No driver found for provider gemini",
-      "ms": 62
+      "ms": 57
     },
     {
       "namespace": "models",
       "method": "xhard/openai:gpt-5.5",
       "outcome": "PASS",
       "detail": "No driver found for provider openai",
-      "ms": 76
+      "ms": 60
     },
     {
       "namespace": "models",
       "method": "xhard/openai:o3-pro",
       "outcome": "PASS",
       "detail": "No driver found for provider openai",
-      "ms": 61
+      "ms": 102
     },
     {
       "namespace": "models",
       "method": "xhard/claude:claude-opus-4.8",
       "outcome": "PASS",
       "detail": "No driver found for provider claude",
-      "ms": 61
+      "ms": 59
     },
     {
       "namespace": "models",
       "method": "xhard/gemini:gemini-3.5-deep-think",
       "outcome": "PASS",
       "detail": "No driver found for provider gemini",
-      "ms": 70
+      "ms": 58
     },
     {
       "namespace": "models",
       "method": "medium/openllm:qwen3.7-plus",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 60
+      "ms": 56
     },
     {
       "namespace": "models",
       "method": "medium/claude:claude-haiku-4.5",
       "outcome": "PASS",
       "detail": "No driver found for provider claude",
-      "ms": 61
+      "ms": 63
     },
     {
       "namespace": "models",
       "method": "medium/gemini:gemini-3.5-flash",
       "outcome": "PASS",
       "detail": "No driver found for provider gemini",
-      "ms": 62
+      "ms": 57
     },
     {
       "namespace": "models",
       "method": "medium/openai:gpt-5.5-mini",
       "outcome": "PASS",
       "detail": "No driver found for provider openai",
-      "ms": 63
+      "ms": 57
     },
     {
       "namespace": "models",
       "method": "light/openllm:qwen-turbo",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 64
+      "ms": 58
     },
     {
       "namespace": "models",
       "method": "nano/vllm:Qwen/Qwen2.5-3B-Instruct-AWQ",
       "outcome": "PASS",
       "detail": "No driver found for provider vllm",
-      "ms": 58
+      "ms": 57
     },
     {
       "namespace": "models",
       "method": "code/openllm:qwen3-coder-plus",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 62
+      "ms": 57
     },
     {
       "namespace": "models",
       "method": "vl/openllm:qwen-vl-plus",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 58
+      "ms": 59
     },
     {
       "namespace": "models",
       "method": "vl/openllm:qwen-vl-max",
       "outcome": "PASS",
       "detail": "No driver found for provider openllm",
-      "ms": 64
+      "ms": 57
     },
     {
       "namespace": "models",
@@ -377,7 +1915,7 @@
       "namespace": "models",
       "method": "rerank/BAAI/bge-reranker-v2-m3",
       "outcome": "SKIP",
-      "detail": "AISDK.ts's register('rerank', ...) doesn't forward params.opts to AIEngine.rerank — model can't be overridden through the SDK, and only 1 model is configured anyway (already covered in ai.test.ts)",
+      "detail": "already covered as the default rerank model in ai.test.ts (rerank) — only 1 model configured for this tier, nothing extra to probe (AISDK.ts's register('rerank', ...) forwards params.opts now, so model override IS possible via SDK, just nothing to override to here)",
       "ms": 0
     },
     {
@@ -398,85 +1936,85 @@
       "namespace": "store",
       "method": "set",
       "outcome": "PASS",
-      "detail": "App Exception",
+      "detail": "Table 'test_sdk_probe' not found in project",
       "ms": 58
     },
     {
       "namespace": "store",
       "method": "get",
-      "outcome": "PASS",
-      "detail": "get returned null for the key just set (probe-1786518510513)",
-      "ms": 62
+      "outcome": "SKIP",
+      "detail": "store.set above failed with a business error (missing project_id in this test account's context), so there's no key to verify get() against",
+      "ms": 0
     },
     {
       "namespace": "store",
       "method": "query",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 60
+      "ms": 56
     },
     {
       "namespace": "store",
       "method": "count",
       "outcome": "PASS",
       "detail": "0",
-      "ms": 61
+      "ms": 55
     },
     {
       "namespace": "store",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 61
+      "ms": 56
     },
     {
       "namespace": "store",
       "method": "del",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Table 'test_sdk_probe' not found in project",
+      "ms": 59
     },
     {
       "namespace": "store",
       "method": "get (deleted/nonexistent key)",
       "outcome": "PASS",
       "detail": "{\"row\":null}",
-      "ms": 59
+      "ms": 56
     },
     {
       "namespace": "store",
       "method": "del (nonexistent key)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 64
+      "detail": "Table 'test_sdk_probe' not found in project",
+      "ms": 57
     },
     {
       "namespace": "store",
       "method": "set (overwrite same key)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Table 'test_sdk_probe' not found in project",
+      "ms": 56
     },
     {
       "namespace": "store",
       "method": "set+get (key with special characters)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 62
+      "detail": "Table 'test_sdk_probe' not found in project",
+      "ms": 58
     },
     {
       "namespace": "store",
       "method": "query (filter matches nothing)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 61
+      "ms": 54
     },
     {
       "namespace": "store",
       "method": "set+get (prototype pollution attempt)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 67
+      "detail": "Table 'test_sdk_probe' not found in project",
+      "ms": 56
     },
     {
       "namespace": "store",
@@ -490,224 +2028,224 @@
       "method": "set",
       "outcome": "PASS",
       "detail": "OK",
-      "ms": 57
+      "ms": 56
     },
     {
       "namespace": "redis",
       "method": "get",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 58
+      "ms": 56
     },
     {
       "namespace": "redis",
       "method": "incr",
       "outcome": "PASS",
       "detail": "2",
-      "ms": 57
+      "ms": 55
     },
     {
       "namespace": "redis",
       "method": "exists",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 58
+      "ms": 55
     },
     {
       "namespace": "redis",
       "method": "del",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 58
+      "ms": 55
     },
     {
       "namespace": "redis",
       "method": "get (deleted/nonexistent key)",
       "outcome": "PASS",
       "detail": "{\"v\":null}",
-      "ms": 61
+      "ms": 62
     },
     {
       "namespace": "redis",
       "method": "del (nonexistent key)",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 58
+      "ms": 61
     },
     {
       "namespace": "redis",
       "method": "exists (nonexistent key)",
       "outcome": "PASS",
       "detail": "0",
-      "ms": 59
+      "ms": 56
     },
     {
       "namespace": "redis",
       "method": "incr (non-numeric value)",
       "outcome": "PASS",
       "detail": "ERR value is not an integer or out of range",
-      "ms": 176
+      "ms": 168
     },
     {
       "namespace": "redis",
       "method": "incr (near Number.MAX_SAFE_INTEGER)",
       "outcome": "PASS",
       "detail": "9007199254740990",
-      "ms": 173
+      "ms": 175
     },
     {
       "namespace": "redis",
       "method": "setex (seconds=0)",
       "outcome": "PASS",
       "detail": "ERR invalid expire time in 'set' command",
-      "ms": 123
+      "ms": 113
     },
     {
       "namespace": "redis",
       "method": "setex (negative seconds)",
       "outcome": "PASS",
       "detail": "ERR invalid expire time in 'set' command",
-      "ms": 123
+      "ms": 119
     },
     {
       "namespace": "redis",
       "method": "incrby (NaN increment)",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 127
+      "ms": 111
     },
     {
       "namespace": "redis",
       "method": "incrby (Infinity increment)",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 122
+      "ms": 116
     },
     {
       "namespace": "redis",
       "method": "decrby (non-integer float)",
       "outcome": "PASS",
       "detail": "ERR value is not an integer or out of range",
-      "ms": 171
+      "ms": 175
     },
     {
       "namespace": "redis",
       "method": "hset",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 59
+      "ms": 58
     },
     {
       "namespace": "redis",
       "method": "hget",
       "outcome": "PASS",
       "detail": "value1",
-      "ms": 64
+      "ms": 59
     },
     {
       "namespace": "redis",
       "method": "hset (second field)",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 66
+      "ms": 57
     },
     {
       "namespace": "redis",
       "method": "hgetall",
       "outcome": "PASS",
       "detail": "{\"field1\":\"value1\",\"field2\":\"value2\"}",
-      "ms": 63
+      "ms": 62
     },
     {
       "namespace": "redis",
       "method": "hget (nonexistent field)",
       "outcome": "PASS",
       "detail": "{\"v\":null}",
-      "ms": 59
+      "ms": 57
     },
     {
       "namespace": "redis",
       "method": "hdel",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 68
+      "ms": 56
     },
     {
       "namespace": "redis",
       "method": "hset (prototype pollution via field name)",
       "outcome": "PASS",
       "detail": "{\"ok\":true}",
-      "ms": 62
+      "ms": 53
     },
     {
       "namespace": "redis",
       "method": "keys (own key appears under matching pattern)",
       "outcome": "PASS",
       "detail": "{\"found\":1}",
-      "ms": 216
+      "ms": 196
     },
     {
       "namespace": "redis",
       "method": "keys (wildcard '*', sanity check)",
       "outcome": "PASS",
       "detail": "{\"count\":0}",
-      "ms": 122
+      "ms": 78
     },
     {
       "namespace": "mongo",
       "method": "create",
       "outcome": "PASS",
-      "detail": "{\"marker\":\"probe-1786518513568\",\"n\":42}",
-      "ms": 71
+      "detail": "{\"marker\":\"probe-1786539595853\",\"n\":42}",
+      "ms": 60
     },
     {
       "namespace": "mongo",
       "method": "findOne",
       "outcome": "PASS",
-      "detail": "{\"marker\":\"probe-1786518513568\",\"n\":42}",
-      "ms": 62
+      "detail": "{\"marker\":\"probe-1786539595853\",\"n\":42}",
+      "ms": 67
     },
     {
       "namespace": "mongo",
       "method": "find",
       "outcome": "PASS",
       "detail": "array(1)",
-      "ms": 57
+      "ms": 56
     },
     {
       "namespace": "mongo",
       "method": "countDocuments",
       "outcome": "PASS",
       "detail": "1",
-      "ms": 62
+      "ms": 56
     },
     {
       "namespace": "mongo",
       "method": "updateOne",
       "outcome": "PASS",
       "detail": "{\"modifiedCount\":1,\"matchedCount\":1,\"upsertedId\":null}",
-      "ms": 58
+      "ms": 59
     },
     {
       "namespace": "mongo",
       "method": "updateOne (filter matches nothing)",
       "outcome": "PASS",
       "detail": "{\"modifiedCount\":0,\"matchedCount\":0,\"upsertedId\":null}",
-      "ms": 62
+      "ms": 54
     },
     {
       "namespace": "mongo",
       "method": "findOne (filter matches nothing)",
       "outcome": "PASS",
       "detail": "{\"doc\":null}",
-      "ms": 61
+      "ms": 57
     },
     {
       "namespace": "mongo",
       "method": "deleteOne",
       "outcome": "PASS",
       "detail": "{\"deletedCount\":1}",
-      "ms": 59
+      "ms": 58
     },
     {
       "namespace": "mongo",
@@ -720,29 +2258,29 @@
       "namespace": "mongo",
       "method": "create (prototype pollution attempt)",
       "outcome": "PASS",
-      "detail": "{\"marker\":\"proto-probe-1786518514118\",\"__proto__\":{\"polluted\":\"yes\"},\"constructor\":{\"prototype\":{\"polluted2\":\"yes\"}}}",
-      "ms": 121
+      "detail": "{\"marker\":\"proto-probe-1786539596378\",\"__proto__\":{\"polluted\":\"yes\"},\"constructor\":{\"prototype\":{\"polluted2\":\"yes\"}}}",
+      "ms": 123
     },
     {
       "namespace": "mongo",
       "method": "create+findOne (operator-shaped value, as literal data)",
       "outcome": "PASS",
-      "detail": "{\"marker\":\"op-value-probe-1786518514239\",\"payload\":{\"$gt\":\"\",\"$where\":\"this is data, not a query operator\"}}",
-      "ms": 184
+      "detail": "{\"marker\":\"op-value-probe-1786539596501\",\"payload\":{\"$gt\":\"\",\"$where\":\"this is data, not a query operator\"}}",
+      "ms": 169
     },
     {
       "namespace": "mongo",
       "method": "find ($in operator)",
       "outcome": "PASS",
       "detail": "{\"matched\":2}",
-      "ms": 448
+      "ms": 389
     },
     {
       "namespace": "knowledge",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 117
+      "ms": 139
     },
     {
       "namespace": "knowledge",
@@ -756,105 +2294,105 @@
       "method": "search (limit=0)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 105
+      "ms": 102
     },
     {
       "namespace": "vector",
       "method": "index",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 56
+      "detail": "Lập chỉ mục tài liệu thất bại (id: test-sdk-vector-probe-1786539597360).",
+      "ms": 98
     },
     {
       "namespace": "vector",
       "method": "index (empty content)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 60
+      "detail": "Lập chỉ mục tài liệu thất bại (id: test-sdk-vector-probe-1786539597360-empty).",
+      "ms": 54
     },
     {
       "namespace": "vector",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 105
+      "ms": 98
     },
     {
       "namespace": "vector",
       "method": "search (empty query)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 59
+      "ms": 57
     },
     {
       "namespace": "vector",
       "method": "search (rerank)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 116
+      "ms": 96
     },
     {
       "namespace": "vector",
       "method": "searchBatch",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 132
+      "ms": 104
     },
     {
       "namespace": "vector",
       "method": "get",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 69
+      "ms": 62
     },
     {
       "namespace": "vector",
       "method": "get (nonexistent id)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 59
+      "ms": 60
     },
     {
       "namespace": "vector",
       "method": "searchBatch (one empty query in batch)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 140
+      "ms": 100
     },
     {
       "namespace": "vector",
       "method": "matchBatch",
       "outcome": "PASS",
       "detail": "array(2)",
-      "ms": 211
+      "ms": 127
     },
     {
       "namespace": "vector",
       "method": "index (re-index same id, verify latest content wins)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 63
+      "detail": "Lập chỉ mục tài liệu thất bại (id: test-sdk-vector-probe-1786539597360).",
+      "ms": 96
     },
     {
       "namespace": "vector",
       "method": "index (prototype pollution via metadata)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 61
+      "detail": "Lập chỉ mục tài liệu thất bại (id: test-sdk-vector-probe-1786539597360-proto).",
+      "ms": 100
     },
     {
       "namespace": "vector",
       "method": "index (5x concurrent, same id)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 139
+      "detail": "Lập chỉ mục tài liệu thất bại (id: test-sdk-vector-probe-1786539597360-race).",
+      "ms": 227
     },
     {
       "namespace": "vector",
       "method": "delete",
       "outcome": "PASS",
       "detail": "{\"deleted\":0}",
-      "ms": 63
+      "ms": 60
     },
     {
       "namespace": "vector",
@@ -868,7 +2406,7 @@
       "method": "getCollectionStatus",
       "outcome": "PASS",
       "detail": "{\"client\":\"wes_aivin_vn\",\"plugin_id\":\"test-sdk\",\"requested_by\":\"6a7b084ef26be74d655f29af\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"label\":\"test-sdk-",
-      "ms": 65
+      "ms": 56
     },
     {
       "namespace": "vector",
@@ -882,42 +2420,42 @@
       "method": "normalize",
       "outcome": "PASS",
       "detail": "{\"norm\":1.000000023841858}",
-      "ms": 1
+      "ms": 0
     },
     {
       "namespace": "usage",
       "method": "checkBalance",
       "outcome": "PASS",
       "detail": "[usage.checkBalance] missing usage_info in context",
-      "ms": 58
+      "ms": 57
     },
     {
       "namespace": "usage",
       "method": "getUsage",
       "outcome": "PASS",
-      "detail": "Cannot read properties of null (reading 'owner_id')",
-      "ms": 65
+      "detail": "[usage.getUsage] user has no organization to report usage for",
+      "ms": 57
     },
     {
       "namespace": "datasource",
       "method": "getSources",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Workspace with id  not found",
+      "ms": 57
     },
     {
       "namespace": "datasource",
       "method": "getDomains",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 61
+      "ms": 58
     },
     {
       "namespace": "datasource",
       "method": "getSources (nonexistent source_id filter)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 62
+      "detail": "Workspace with id  not found",
+      "ms": 58
     },
     {
       "namespace": "datasource",
@@ -931,70 +2469,70 @@
       "method": "think",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 148
+      "ms": 107
     },
     {
       "namespace": "causality",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 153
+      "ms": 244
     },
     {
       "namespace": "causality",
       "method": "search (empty query)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 5649
+      "ms": 57
     },
     {
       "namespace": "causality",
       "method": "absorb (empty array)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 60
+      "ms": 57
     },
     {
       "namespace": "causality",
       "method": "absorb",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 60
+      "ms": 694
     },
     {
       "namespace": "causality",
       "method": "absorb (prototype pollution attempt)",
       "outcome": "PASS",
-      "detail": "array(1)",
-      "ms": 6060
+      "detail": "array(0)",
+      "ms": 240
     },
     {
       "namespace": "causality",
       "method": "think (prompt injection-shaped query)",
       "outcome": "PASS",
       "detail": "array(2)",
-      "ms": 114
+      "ms": 82
     },
     {
       "namespace": "attachment",
       "method": "search",
       "outcome": "PASS",
-      "detail": "App Exception",
+      "detail": "Cần có session để tìm kiếm tệp đính kèm.",
       "ms": 56
     },
     {
       "namespace": "attachment",
       "method": "search (empty query)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Cần có session để tìm kiếm tệp đính kèm.",
+      "ms": 54
     },
     {
       "namespace": "attachment",
       "method": "search (limit=0)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 55
+      "detail": "Cần có session để tìm kiếm tệp đính kèm.",
+      "ms": 58
     },
     {
       "namespace": "attachment",
@@ -1042,22 +2580,22 @@
       "namespace": "workspace",
       "method": "get",
       "outcome": "PASS",
-      "detail": "{\"creator_uid\":\"6a7b084ef26be74d655f29af\",\"client\":\"wes_aivin_vn\",\"name\":\"Personal\",\"agents\":[{\"response_config\":{\"tone\":[],\"format\":[]},\"behavior\":{\"",
-      "ms": 58
+      "detail": "{\"_id\":\"6a7b0853f16f8c62bc49955d\",\"creator_uid\":\"6a7b084ef26be74d655f29af\",\"client\":\"wes_aivin_vn\",\"name\":\"Personal\",\"__v\":84,\"agents\":[{\"agent_id\":\"6",
+      "ms": 56
     },
     {
       "namespace": "workspace",
       "method": "getByIds",
       "outcome": "PASS",
       "detail": "array(1)",
-      "ms": 58
+      "ms": 60
     },
     {
       "namespace": "workspace",
       "method": "getByIds (empty array)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 56
+      "ms": 57
     },
     {
       "namespace": "workspace",
@@ -1078,42 +2616,42 @@
       "method": "checkPermission (invalid permission)",
       "outcome": "PASS",
       "detail": "true",
-      "ms": 58
+      "ms": 56
     },
     {
       "namespace": "workspace",
       "method": "getPluginConfig",
       "outcome": "PASS",
       "detail": "{\"__proto__\":{\"polluted\":\"yes\"},\"constructor\":{\"prototype\":{\"polluted2\":\"yes\"}}}",
-      "ms": 62
+      "ms": 59
     },
     {
       "namespace": "workspace",
       "method": "searchAgents",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 122
+      "ms": 76
     },
     {
       "namespace": "workspace",
       "method": "searchAgents (empty query)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 66
+      "ms": 56
     },
     {
       "namespace": "workspace",
       "method": "updatePlugin",
       "outcome": "PASS",
       "detail": "{\"creator_uid\":\"6a7b084ef26be74d655f29af\",\"client\":\"wes_aivin_vn\",\"name\":\"Personal\",\"agents\":[{\"response_config\":{\"tone\":[],\"format\":[]},\"behavior\":{\"",
-      "ms": 69
+      "ms": 67
     },
     {
       "namespace": "workspace",
       "method": "updatePlugin (prototype pollution via arguments)",
       "outcome": "PASS",
       "detail": "{\"creator_uid\":\"6a7b084ef26be74d655f29af\",\"client\":\"wes_aivin_vn\",\"name\":\"Personal\",\"agents\":[{\"response_config\":{\"tone\":[],\"format\":[]},\"behavior\":{\"",
-      "ms": 64
+      "ms": 62
     },
     {
       "namespace": "agent",
@@ -1127,21 +2665,21 @@
       "method": "status",
       "outcome": "PASS",
       "detail": "{\"status\":\"unlinked\"}",
-      "ms": 56
+      "ms": 58
     },
     {
       "namespace": "agent",
       "method": "reply",
       "outcome": "PASS",
       "detail": "Ok",
-      "ms": 61
+      "ms": 58
     },
     {
       "namespace": "agent",
       "method": "tell",
       "outcome": "PASS",
       "detail": "{\"success\":false}",
-      "ms": 67
+      "ms": 57
     },
     {
       "namespace": "agent",
@@ -1155,21 +2693,21 @@
       "method": "reply (empty string)",
       "outcome": "PASS",
       "detail": "[agent.reply] quest is required",
-      "ms": 61
+      "ms": 55
     },
     {
       "namespace": "agent",
       "method": "resolveHil (missing session_id)",
       "outcome": "PASS",
       "detail": "[agent.resolveHil] session_id and reply_id are required",
-      "ms": 64
+      "ms": 56
     },
     {
       "namespace": "agent",
       "method": "resolveHil (prototype pollution via payload)",
       "outcome": "PASS",
       "detail": "[MessageSDK] missing client in context",
-      "ms": 58
+      "ms": 54
     },
     {
       "namespace": "agent",
@@ -1197,140 +2735,140 @@
       "method": "cancel",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"session_id\":\"wes_aivin_vn\"}",
-      "ms": 59
+      "ms": 54
     },
     {
       "namespace": "browser",
       "method": "run",
       "outcome": "PASS",
-      "detail": "gRPC invoke 'browser.run' failed: 2 UNKNOWN: Received HTTP status code 524",
-      "ms": 125050
+      "detail": "{\"status\":\"fail\",\"message\":\"Đã có một nhiệm vụ khác đang chạy cho khách hàng wes_aivin_vn. Vui lòng đợi.\",\"data\":{\"status\":\"failed\",\"message\":\"Đã có m",
+      "ms": 60952
     },
     {
       "namespace": "project",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 4560
+      "ms": 190
     },
     {
       "namespace": "project",
       "method": "get",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 138
+      "detail": "Project not found",
+      "ms": 58
     },
     {
       "namespace": "project",
       "method": "search (empty keyword)",
       "outcome": "PASS",
       "detail": "Project search failed: [AIEngine] getEmbedding: data is required",
-      "ms": 63
+      "ms": 57
     },
     {
       "namespace": "project",
       "method": "search (regex/operator-injection-shaped keyword)",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 105
+      "ms": 150
     },
     {
       "namespace": "table",
       "method": "getAllTables",
       "outcome": "PASS",
       "detail": "array(1)",
-      "ms": 59
+      "ms": 60
     },
     {
       "namespace": "table",
       "method": "createTable",
       "outcome": "PASS",
-      "detail": "{\"_id\":\"6a7c1c833b81126aced4876d\",\"table_id\":\"tbl_mspr301e_yplhh\",\"name\":\"test_sdk_probe_table_1786518660573\",\"description\":\"Auto-created by test-sdk ",
-      "ms": 186
+      "detail": "{\"_id\":\"6a7c6e8e9bffc85200da346d\",\"table_id\":\"tbl_msq3l5z0_virss\",\"name\":\"test_sdk_probe_table_1786539663394\",\"description\":\"Auto-created by test-sdk ",
+      "ms": 176
     },
     {
       "namespace": "table",
       "method": "getTable",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"tbl_mspr301e_yplhh\",\"name\":\"test_sdk_probe_table_1786518660573\",\"description\":\"Auto-created by test-sdk to verify the round-trip, deleted",
-      "ms": 62
+      "detail": "{\"table_id\":\"tbl_msq3l5z0_virss\",\"name\":\"test_sdk_probe_table_1786539663394\",\"description\":\"Auto-created by test-sdk to verify the round-trip, deleted",
+      "ms": 58
     },
     {
       "namespace": "table",
       "method": "updateTable",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"message\":\"Table updated\"}",
-      "ms": 120
+      "ms": 154
     },
     {
       "namespace": "table",
       "method": "getTable (nonexistent table_id)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 57
+      "detail": "Table not found",
+      "ms": 61
     },
     {
       "namespace": "table",
       "method": "addRow",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
-      "ms": 62
+      "detail": "{\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
+      "ms": 65
     },
     {
       "namespace": "table",
       "method": "getRow",
       "outcome": "PASS",
-      "detail": "{\"_id\":\"6a7c1c833b81126aced4878e\",\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca0368",
-      "ms": 146
+      "detail": "{\"_id\":\"6a7c6e8e9bffc85200da3494\",\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca0368",
+      "ms": 55
     },
     {
       "namespace": "table",
       "method": "updateRow",
       "outcome": "PASS",
-      "detail": "{\"_id\":\"6a7c1c833b81126aced4878e\",\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca0368",
+      "detail": "{\"_id\":\"6a7c6e8e9bffc85200da3494\",\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca0368",
       "ms": 64
     },
     {
       "namespace": "table",
       "method": "getRow (nonexistent row_id)",
       "outcome": "PASS",
-      "detail": "Cast to ObjectId failed for value \"test-sdk-nonexistent-row-id\" (type string) at path \"_id\" for model \"dynamic_row\"",
-      "ms": 66
+      "detail": "null/undefined",
+      "ms": 57
     },
     {
       "namespace": "table",
       "method": "addRow (schema-mismatched data)",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
-      "ms": 64
+      "detail": "{\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
+      "ms": 56
     },
     {
       "namespace": "table",
       "method": "addRow (prototype pollution attempt)",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
-      "ms": 63
+      "detail": "{\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
+      "ms": 56
     },
     {
       "namespace": "table",
       "method": "addRow (NoSQL-operator-shaped value, as literal data)",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
-      "ms": 59
+      "detail": "{\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
+      "ms": 57
     },
     {
       "namespace": "table",
       "method": "addRow (deeply nested data, 60 levels)",
       "outcome": "PASS",
-      "detail": "{\"table_id\":\"6a7c1c833b81126aced4876d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
-      "ms": 61
+      "detail": "{\"table_id\":\"6a7c6e8e9bffc85200da346d\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"project_id\":\"6a7b302e1e54b7d0ca03681f\",\"client\":\"wes_aivin_vn\",\"data",
+      "ms": 57
     },
     {
       "namespace": "table",
       "method": "getRows",
       "outcome": "PASS",
       "detail": "array(5)",
-      "ms": 96
+      "ms": 58
     },
     {
       "namespace": "table",
@@ -1344,98 +2882,98 @@
       "method": "getRows (limit=Number.MAX_SAFE_INTEGER)",
       "outcome": "PASS",
       "detail": "array(5)",
-      "ms": 62
+      "ms": 60
     },
     {
       "namespace": "table",
       "method": "bulkAddRows",
       "outcome": "PASS",
       "detail": "array(2)",
-      "ms": 88
+      "ms": 58
     },
     {
       "namespace": "table",
       "method": "bulkAddRows (empty rows array)",
       "outcome": "PASS",
       "detail": "[table.bulkAddRows] invalid params - rows: rows must have at least one entry",
-      "ms": 1
+      "ms": 0
     },
     {
       "namespace": "table",
       "method": "bulkAddRows (large batch, 100 rows)",
       "outcome": "PASS",
       "detail": "{\"requested\":100,\"inserted\":100}",
-      "ms": 169
+      "ms": 153
     },
     {
       "namespace": "table",
       "method": "batchUpdateRows (filter matches nothing)",
       "outcome": "PASS",
       "detail": "{\"modifiedCount\":0}",
-      "ms": 65
+      "ms": 63
     },
     {
       "namespace": "table",
       "method": "batchUpdateRows",
       "outcome": "PASS",
-      "detail": "{\"modifiedCount\":1,\"snapshot_id\":\"ds:snap:1786518661151:tcrhmt7\"}",
-      "ms": 68
+      "detail": "{\"modifiedCount\":1,\"snapshot_id\":\"ds:snap:1786539663868:h2pxx2j\"}",
+      "ms": 79
     },
     {
       "namespace": "table",
       "method": "rollback",
       "outcome": "PASS",
       "detail": "{\"restored\":1,\"reinserted\":0,\"removed\":0,\"failed\":0}",
-      "ms": 66
+      "ms": 58
     },
     {
       "namespace": "table",
       "method": "batchDeleteRows",
       "outcome": "PASS",
-      "detail": "{\"success\":true,\"deletedCount\":2,\"snapshot_id\":\"ds:snap:1786518661295:3r6z58g\"}",
-      "ms": 69
+      "detail": "{\"success\":true,\"deletedCount\":2,\"snapshot_id\":\"ds:snap:1786539664013:94oqgfu\"}",
+      "ms": 61
     },
     {
       "namespace": "table",
       "method": "searchSemantic",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 116
+      "ms": 134
     },
     {
       "namespace": "table",
       "method": "searchSemantic (empty query)",
       "outcome": "PASS",
       "detail": "[table.searchSemantic] invalid params - query: query is required",
-      "ms": 0
+      "ms": 1
     },
     {
       "namespace": "table",
       "method": "smartQuery",
-      "outcome": "FAIL",
-      "detail": "gRPC invoke 'table.smartQuery' failed: 4 DEADLINE_EXCEEDED: Deadline exceeded",
-      "ms": 27723
+      "outcome": "PASS",
+      "detail": "{\"rows\":[],\"count\":0,\"schema_used\":{\"table_id\":\"tbl_msq3l5z0_virss\",\"name\":\"test_sdk_probe_table_1786539663394\",\"description\":\"updated by test-sdk\",\"c",
+      "ms": 2261
     },
     {
       "namespace": "table",
       "method": "batchUpdateByAI",
-      "outcome": "FAIL",
-      "detail": "gRPC invoke 'table.batchUpdateByAI' failed: 4 DEADLINE_EXCEEDED: Deadline exceeded",
-      "ms": 27757
+      "outcome": "PASS",
+      "detail": "{\"modifiedCount\":5,\"snapshot_id\":\"ds:snap:1786539668912:ek9b2qy\",\"reason\":\"This JSON object defines the filter to find all rows in table '6a7c6e8e9bff",
+      "ms": 2085
     },
     {
       "namespace": "table",
       "method": "getTableStats",
       "outcome": "PASS",
       "detail": "{\"count\":0,\"last_updated_at\":null,\"top_sources\":[],\"schema_coverage\":{},\"warning_threshold\":750,\"hard_limit\":1000}",
-      "ms": 70
+      "ms": 67
     },
     {
       "namespace": "table",
       "method": "countRows",
       "outcome": "PASS",
       "detail": "{\"count\":5,\"warning_threshold\":750,\"hard_limit\":1000}",
-      "ms": 68
+      "ms": 59
     },
     {
       "namespace": "table",
@@ -1449,28 +2987,28 @@
       "method": "deduplicateTable",
       "outcome": "PASS",
       "detail": "{\"removed\":0,\"merged\":0,\"groups_found\":0}",
-      "ms": 66
+      "ms": 60
     },
     {
       "namespace": "table",
       "method": "backfillColumn",
       "outcome": "PASS",
       "detail": "{\"updated\":0}",
-      "ms": 61
+      "ms": 59
     },
     {
       "namespace": "table",
       "method": "formatRowsForContext",
       "outcome": "PASS",
-      "detail": "{\"context\":\"Table: test_sdk_probe_table_1786518660573\\n\",\"rows_included\":0,\"estimated_tokens\":11,\"total_rows\":0}",
-      "ms": 61
+      "detail": "{\"context\":\"Table: test_sdk_probe_table_1786539663394\\n\",\"rows_included\":0,\"estimated_tokens\":11,\"total_rows\":0}",
+      "ms": 66
     },
     {
       "namespace": "table",
       "method": "deleteRow",
       "outcome": "PASS",
-      "detail": "{\"success\":true,\"snapshot_id\":\"ds:snap:1786518717423:h10aqin\"}",
-      "ms": 70
+      "detail": "{\"success\":true,\"snapshot_id\":\"ds:snap:1786539669396:qk5mhoc\"}",
+      "ms": 63
     },
     {
       "namespace": "table",
@@ -1484,175 +3022,189 @@
       "method": "deleteTable",
       "outcome": "PASS",
       "detail": "{\"success\":true}",
-      "ms": 80
+      "ms": 75
     },
     {
       "namespace": "table",
       "method": "deleteTable (already deleted)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 64
+      "detail": "Table not found",
+      "ms": 58
     },
     {
       "namespace": "task",
       "method": "create",
-      "outcome": "FAIL",
-      "detail": "gRPC invoke 'task.createTask' failed: 4 DEADLINE_EXCEEDED: Deadline exceeded",
-      "ms": 27728
+      "outcome": "PASS",
+      "detail": "{\"title\":\"test-sdk probe 1786539669950\",\"client\":\"wes_aivin_vn\",\"key\":\"test-sdk-probe-1786539669950\",\"step\":\"Analysis\",\"status\":\"processing\",\"handler_",
+      "ms": 2392
     },
     {
       "namespace": "task",
       "method": "create (empty title)",
       "outcome": "PASS",
       "detail": "{\"title\":\"\",\"client\":\"wes_aivin_vn\",\"status\":\"processing\",\"handler_history\":[{\"member_id\":\"6a7b084ef26be74d655f29af\",\"member_name\":\"Phùng Đức Thắng\",\"",
-      "ms": 74
+      "ms": 64
     },
     {
       "namespace": "task",
       "method": "listMine",
       "outcome": "PASS",
-      "detail": "array(25)",
-      "ms": 68
+      "detail": "array(3)",
+      "ms": 63
     },
     {
       "namespace": "task",
       "method": "listMine (limit=0)",
       "outcome": "PASS",
-      "detail": "limit=0 should return an empty array, got 25 tasks",
-      "ms": 68
+      "detail": "array(0)",
+      "ms": 55
+    },
+    {
+      "namespace": "task",
+      "method": "delete",
+      "outcome": "PASS",
+      "detail": "{\"title\":\"test-sdk probe 1786539669950\",\"client\":\"wes_aivin_vn\",\"key\":\"test-sdk-probe-1786539669950\",\"step\":\"Analysis\",\"status\":\"processing\",\"handler_",
+      "ms": 59
+    },
+    {
+      "namespace": "task",
+      "method": "delete (already deleted)",
+      "outcome": "PASS",
+      "detail": "Task not found",
+      "ms": 57
     },
     {
       "namespace": "task",
       "method": "create (5x concurrent)",
-      "outcome": "FAIL",
-      "detail": "gRPC invoke 'task.createTask' failed: 4 DEADLINE_EXCEEDED: Deadline exceeded",
-      "ms": 27776
+      "outcome": "PASS",
+      "detail": "{\"created\":5,\"failed\":0}",
+      "ms": 9718
     },
     {
       "namespace": "message",
       "method": "getRecent",
       "outcome": "PASS",
       "detail": "array(3)",
-      "ms": 67
+      "ms": 77
     },
     {
       "namespace": "message",
       "method": "save",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf53b81126aced48869\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 67
+      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c6ea39bffc85200da363e\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 59
     },
     {
       "namespace": "message",
       "method": "save (empty text)",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf53b81126aced4886d\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 65
+      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c6ea39bffc85200da3642\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 61
     },
     {
       "namespace": "message",
       "method": "save (invalid role)",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf53b81126aced48870\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"this-is-not-a-role\",\"session_id\":\"tes",
-      "ms": 64
+      "detail": "[message.saveMessage] invalid role \"this-is-not-a-role\" - must be one of: user, assistant, system",
+      "ms": 56
     },
     {
       "namespace": "message",
       "method": "save (valid role, wrong case: User)",
       "outcome": "PASS",
-      "detail": "{\"id\":\"6a7c1cf53b81126aced48874\",\"client\":\"wes_aivin_vn\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"User\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 73
+      "detail": "[message.saveMessage] invalid role \"User\" - must be one of: user, assistant, system",
+      "ms": 57
     },
     {
       "namespace": "message",
       "method": "save (huge text ~15k chars)",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf53b81126aced48878\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 71
+      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c6ea39bffc85200da3645\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 67
     },
     {
       "namespace": "message",
       "method": "save+getById (injection-shaped content, round-trip integrity)",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf53b81126aced4887b\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 131
+      "detail": "{\"id\":\"6a7c6ea39bffc85200da3648\",\"client\":\"wes_aivin_vn\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 121
     },
     {
       "namespace": "message",
       "method": "save (10x concurrent, same session)",
       "outcome": "PASS",
       "detail": "{\"landed\":10}",
-      "ms": 231
+      "ms": 227
     },
     {
       "namespace": "message",
       "method": "getList",
       "outcome": "PASS",
       "detail": "array(5)",
-      "ms": 65
+      "ms": 76
     },
     {
       "namespace": "message",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(50)",
-      "ms": 260
+      "ms": 192
     },
     {
       "namespace": "message",
       "method": "search (empty query)",
       "outcome": "PASS",
       "detail": "array(50)",
-      "ms": 90
+      "ms": 83
     },
     {
       "namespace": "message",
       "method": "getList (negative limit)",
       "outcome": "PASS",
       "detail": "array(1)",
-      "ms": 62
+      "ms": 61
     },
     {
       "namespace": "message",
       "method": "init",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf63b81126aced488af\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 59
+      "detail": "{\"id\":\"6a7c6ea19bffc85200da367d\",\"client\":\"wes_aivin_vn\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 56
     },
     {
       "namespace": "message",
       "method": "getById (nonexistent id)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 67
+      "detail": "Không tìm thấy tin nhắn.",
+      "ms": 56
     },
     {
       "namespace": "message",
       "method": "getById",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c1cf63b81126aced4888a\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
-      "ms": 62
+      "detail": "{\"client\":\"wes_aivin_vn\",\"id\":\"6a7c6ea39bffc85200da365c\",\"context_attachments\":[],\"files\":[],\"images\":[],\"role\":\"user\",\"session_id\":\"test-sdk-probe-se",
+      "ms": 56
     },
     {
       "namespace": "message",
       "method": "update",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 88
+      "detail": "Không tìm thấy hoặc bạn không có quyền cập nhật.",
+      "ms": 55
     },
     {
       "namespace": "message",
       "method": "update (empty text)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 59
+      "detail": "Không tìm thấy hoặc bạn không có quyền cập nhật.",
+      "ms": 54
     },
     {
       "namespace": "message",
       "method": "update (prototype pollution via free-form fields)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 59
+      "detail": "Không tìm thấy hoặc bạn không có quyền cập nhật.",
+      "ms": 55
     },
     {
       "namespace": "message",
@@ -1666,126 +3218,126 @@
       "method": "getList",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 62
+      "ms": 56
     },
     {
       "namespace": "session",
       "method": "get",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 62
+      "ms": 57
     },
     {
       "namespace": "session",
       "method": "get (nonexistent id)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 57
+      "ms": 55
     },
     {
       "namespace": "session",
       "method": "updateStatus (invalid status value)",
       "outcome": "PASS",
-      "detail": "null/undefined",
-      "ms": 59
+      "detail": "[session.updateSessionStatus] invalid status \"this-is-not-a-valid-status\" - must be one of: idle, processing, completed",
+      "ms": 56
     },
     {
       "namespace": "session",
       "method": "update (empty payload)",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 61
+      "ms": 58
     },
     {
       "namespace": "session",
       "method": "updateStatus (valid value, wrong case: IDLE)",
       "outcome": "PASS",
-      "detail": "{\"persistedStatus\":\"IDLE\"}",
-      "ms": 116
+      "detail": "[session.updateSessionStatus] invalid status \"IDLE\" - must be one of: idle, processing, completed",
+      "ms": 53
     },
     {
       "namespace": "session",
       "method": "markAsSeen",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 67
+      "ms": 57
     },
     {
       "namespace": "session",
       "method": "update",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 62
+      "ms": 58
     },
     {
       "namespace": "session",
       "method": "update (prototype pollution via free-form fields)",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 61
+      "ms": 59
     },
     {
       "namespace": "session",
       "method": "updateStatus",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 59
+      "ms": 56
     },
     {
       "namespace": "session",
       "method": "updateAgent",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 61
+      "ms": 56
     },
     {
       "namespace": "session",
       "method": "newSession",
       "outcome": "PASS",
       "detail": "{\"id\":\"test-sdk-probe-session\",\"client\":\"wes_aivin_vn\",\"context_usage_cache\":0,\"human_takeover\":false,\"is_activated\":true,\"is_background\":false,\"is_pr",
-      "ms": 67
+      "ms": 58
     },
     {
       "namespace": "session",
       "method": "create",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 60
+      "detail": "agent_id \"undefined\" is invalid — cannot build session",
+      "ms": 55
     },
     {
       "namespace": "session",
       "method": "updateStatus (3x concurrent, same session)",
       "outcome": "PASS",
       "detail": "{\"ok\":3}",
-      "ms": 62
+      "ms": 59
     },
     {
       "namespace": "realtime",
       "method": "publish",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"delivered_to\":\"6a7b0853f16f8c62bc49955d\"}",
-      "ms": 61
+      "ms": 55
     },
     {
       "namespace": "realtime",
       "method": "publish (target=user)",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"delivered_to\":\"6a7b084ef26be74d655f29af\"}",
-      "ms": 59
+      "ms": 56
     },
     {
       "namespace": "realtime",
       "method": "publish (empty event name)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Thiếu tham số event.",
+      "ms": 54
     },
     {
       "namespace": "realtime",
       "method": "publish (prototype pollution via data)",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"delivered_to\":\"6a7b0853f16f8c62bc49955d\"}",
-      "ms": 58
+      "ms": 55
     },
     {
       "namespace": "queue",
@@ -1799,161 +3351,161 @@
       "method": "subscribeTopic",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 57
+      "ms": 60
     },
     {
       "namespace": "notification",
       "method": "unsubscribeTopic",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 60
+      "ms": 54
     },
     {
       "namespace": "notification",
       "method": "unsubscribeTopic (never subscribed)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 60
+      "ms": 56
     },
     {
       "namespace": "notification",
       "method": "push",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 67
+      "ms": 71
     },
     {
       "namespace": "notification",
       "method": "push (prototype pollution via free-form fields)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 62
+      "ms": 60
     },
     {
       "namespace": "notification",
       "method": "push (receiver_id - the field the real handler actually reads)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 63
+      "ms": 60
     },
     {
       "namespace": "notification",
       "method": "push (receiver_ids batch)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 64
+      "ms": 59
     },
     {
       "namespace": "notification",
       "method": "push (channels + priority routing)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 62
+      "ms": 59
     },
     {
       "namespace": "notification",
       "method": "push (channels: ['email'], priority: 'urgent' — the beautiful MailHelper template, AI-generated from prompt)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 18160
+      "ms": 9247
     },
     {
       "namespace": "notification",
       "method": "push (messageIsHtml)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 65
+      "ms": 68
     },
     {
       "namespace": "notification",
       "method": "push (title_key/message_key/vars i18n)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 69
+      "ms": 78
     },
     {
       "namespace": "notification",
       "method": "subscribeTopic (setup for push topic-broadcast probe)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 57
+      "ms": 73
     },
     {
       "namespace": "notification",
       "method": "push (topic broadcast — no user_id/receiver_id, audience = topic subscribers)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 62
+      "ms": 72
     },
     {
       "namespace": "notification",
       "method": "unsubscribeTopic (cleanup push topic-broadcast probe)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 60
+      "ms": 56
     },
     {
       "namespace": "notification",
       "method": "sendMail",
       "outcome": "PASS",
       "detail": "{\"accepted\":[\"thangphung.work@gmail.com\"],\"rejected\":[],\"ehlo\":[\"PIPELINING\",\"SIZE 48811212\",\"ETRN\",\"AUTH PLAIN LOGIN\",\"ENHANCEDSTATUSCODES\",\"8BITMIME",
-      "ms": 7103
+      "ms": 7924
     },
     {
       "namespace": "notification",
       "method": "sendMail (HTML/script content in body)",
       "outcome": "PASS",
       "detail": "{\"accepted\":[\"thangphung.work@gmail.com\"],\"rejected\":[],\"ehlo\":[\"PIPELINING\",\"SIZE 48811212\",\"ETRN\",\"AUTH PLAIN LOGIN\",\"ENHANCEDSTATUSCODES\",\"8BITMIME",
-      "ms": 2020
+      "ms": 7346
     },
     {
       "namespace": "notification",
       "method": "sendMail (CRLF header injection in subject)",
       "outcome": "PASS",
       "detail": "{\"accepted\":[\"thangphung.work@gmail.com\"],\"rejected\":[],\"ehlo\":[\"PIPELINING\",\"SIZE 48811212\",\"ETRN\",\"AUTH PLAIN LOGIN\",\"ENHANCEDSTATUSCODES\",\"8BITMIME",
-      "ms": 2016
+      "ms": 2298
     },
     {
       "namespace": "notification",
       "method": "sendMail (CRLF injection in to)",
       "outcome": "PASS",
       "detail": "{\"accepted\":[\"thangphung.work@gmail.com\"],\"rejected\":[],\"ehlo\":[\"PIPELINING\",\"SIZE 48811212\",\"ETRN\",\"AUTH PLAIN LOGIN\",\"ENHANCEDSTATUSCODES\",\"8BITMIME",
-      "ms": 2191
+      "ms": 2441
     },
     {
       "namespace": "resource",
       "method": "upload",
       "outcome": "PASS",
       "detail": "{\"name\":\"test-sdk-probe.txt\",\"mime\":\"text/plain\",\"is_public\":false,\"temp\":true,\"client\":\"wes_aivin_vn\",\"user_id\":\"6a7b084ef26be74d655f29af\",\"workspace",
-      "ms": 91
+      "ms": 100
     },
     {
       "namespace": "resource",
       "method": "remove",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 94
+      "ms": 92
     },
     {
       "namespace": "resource",
       "method": "remove (already removed)",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 70
+      "ms": 74
     },
     {
       "namespace": "resource",
       "method": "remove (nonexistent url)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 60
+      "detail": "Không thể xóa dữ liệu thuộc về tổ chức khác.",
+      "ms": 55
     },
     {
       "namespace": "resource",
       "method": "upload (path traversal filename)",
       "outcome": "PASS",
       "detail": "{\"name\":\"../../../../etc/test-sdk-probe-traversal.txt\",\"mime\":\"text/plain\",\"is_public\":false,\"temp\":true,\"client\":\"wes_aivin_vn\",\"user_id\":\"6a7b084ef2",
-      "ms": 88
+      "ms": 87
     },
     {
       "namespace": "resource",
@@ -1967,28 +3519,28 @@
       "method": "get",
       "outcome": "PASS",
       "detail": "{\"app_domain\":\"demo.aivin.vn\",\"app_url\":\"https://demo.aivin.vn\",\"app_logo\":\"https://i.ibb.co/WNfcd5sG/aivin-logo-removebg-preview.png\",\"app_slogan\":\"N",
-      "ms": 60
+      "ms": 57
     },
     {
       "namespace": "setting",
       "method": "getMerchantConfig",
       "outcome": "PASS",
       "detail": "null/undefined",
-      "ms": 56
+      "ms": 59
     },
     {
       "namespace": "automation",
       "method": "getJobs",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 59
+      "ms": 66
     },
     {
       "namespace": "automation",
       "method": "getJobs (nonexistent workspace_id)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 58
+      "detail": "Workspace with id test-sdk-nonexistent-workspace-id not found",
+      "ms": 59
     },
     {
       "namespace": "automation",
@@ -2022,50 +3574,50 @@
       "namespace": "code",
       "method": "executeLogic",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 80
+      "detail": "Thiếu org_id.",
+      "ms": 83
     },
     {
       "namespace": "code",
       "method": "executeLogic (logic throws)",
       "outcome": "PASS",
-      "detail": "App Exception",
+      "detail": "Thiếu org_id.",
       "ms": 59
     },
     {
       "namespace": "code",
       "method": "executeLogic (missing logic field)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 62
+      "detail": "Thiếu org_id.",
+      "ms": 58
     },
     {
       "namespace": "code",
       "method": "executeLogic (sandbox escape attempt)",
       "outcome": "PASS",
-      "detail": "App Exception",
+      "detail": "Thiếu org_id.",
       "ms": 58
     },
     {
       "namespace": "code",
       "method": "executeLogic (prototype pollution via args)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 57
+      "detail": "Thiếu org_id.",
+      "ms": 55
     },
     {
       "namespace": "file",
       "method": "list",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 60
+      "ms": 58
     },
     {
       "namespace": "file",
       "method": "search",
       "outcome": "PASS",
       "detail": "array(0)",
-      "ms": 5361
+      "ms": 69
     },
     {
       "namespace": "file",
@@ -2078,50 +3630,50 @@
       "namespace": "file",
       "method": "get (nonexistent id)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 59
+      "detail": "File ID không hợp lệ: \"test-sdk-nonexistent-file-id\"",
+      "ms": 55
     },
     {
       "namespace": "file",
       "method": "create",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"name\":\"test-sdk-probe-1786518815860.txt\",\"content\":\"Auto-created by test-sdk to ve",
-      "ms": 71
+      "detail": "{\"client\":\"wes_aivin_vn\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"name\":\"test-sdk-probe-1786539716222.txt\",\"content\":\"Auto-created by test-sdk to ve",
+      "ms": 62
     },
     {
       "namespace": "file",
       "method": "get",
       "outcome": "PASS",
-      "detail": "{\"client\":\"wes_aivin_vn\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"name\":\"test-sdk-probe-1786518815860.txt\",\"content\":\"Auto-created by test-sdk to ve",
-      "ms": 65
+      "detail": "{\"client\":\"wes_aivin_vn\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"name\":\"test-sdk-probe-1786539716222.txt\",\"content\":\"Auto-created by test-sdk to ve",
+      "ms": 57
     },
     {
       "namespace": "file",
       "method": "del",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"message\":\"File deleted successfully\"}",
-      "ms": 61
+      "ms": 63
     },
     {
       "namespace": "file",
       "method": "del (already deleted)",
       "outcome": "PASS",
-      "detail": "App Exception",
-      "ms": 60
+      "detail": "File not found or you don't have permission to delete it",
+      "ms": 58
     },
     {
       "namespace": "file",
       "method": "create (path traversal filename)",
       "outcome": "PASS",
       "detail": "{\"client\":\"wes_aivin_vn\",\"workspace_id\":\"6a7b0853f16f8c62bc49955d\",\"name\":\"../../../../etc/test-sdk-probe-traversal.txt\",\"content\":\"path traversal pro",
-      "ms": 61
+      "ms": 59
     },
     {
       "namespace": "file",
       "method": "del (path traversal probe cleanup)",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"message\":\"File deleted successfully\"}",
-      "ms": 67
+      "ms": 60
     },
     {
       "namespace": "file",
@@ -2135,7 +3687,7 @@
       "method": "del (prototype pollution probe cleanup)",
       "outcome": "PASS",
       "detail": "{\"success\":true,\"message\":\"File deleted successfully\"}",
-      "ms": 63
+      "ms": 62
     }
   ]
 }

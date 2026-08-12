@@ -1,4 +1,4 @@
-import { table } from "@aivin-labs/sdk";
+import { call, table } from "@aivin-labs/sdk";
 import { AssertionFailure, assertNoPrototypePollution, runCheck, skip } from "../helpers/report";
 
 /**
@@ -319,17 +319,28 @@ export async function testTable(workspaceId?: string, projectId?: string): Promi
       { expectBusinessError: true },
     );
 
+    // `table.smartQuery()`/`batchUpdateByAI()` sugar dùng timeout mặc định 30s của SDK - tier
+    // "medium" thử `ollama` (local, http://localhost:11434) TRƯỚC rồi mới fallback sang `openllm`
+    // (nvidia-hosted); ở môi trường không có Ollama chạy sẵn, bước thử-rồi-fail đó ăn hết luôn 30s
+    // trước khi kịp fallback, khiến client tự huỷ với DEADLINE_EXCEEDED dù server rốt cuộc vẫn trả
+    // được qua openllm. Dùng `call()` (escape hatch) truyền timeout dài hơn hẳn để có cơ hội thấy
+    // kết quả thật thay vì lỗi timeout phía client.
     await runCheck(
       "table",
       "smartQuery",
-      () => table.smartQuery(`liệt kê tất cả row trong bảng ${tableId}`),
+      () => call("table.smartQuery", { query: `liệt kê tất cả row trong bảng ${tableId}` }, 90_000),
       { expectBusinessError: true },
     );
 
     await runCheck(
       "table",
       "batchUpdateByAI",
-      () => table.batchUpdateByAI(`đổi title của mọi row trong bảng ${tableId} thành "ai updated"`),
+      () =>
+        call(
+          "table.batchUpdateByAI",
+          { instruction: `đổi title của mọi row trong bảng ${tableId} thành "ai updated"` },
+          90_000,
+        ),
       { expectBusinessError: true },
     );
 

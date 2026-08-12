@@ -1,5 +1,5 @@
 import { store } from "@aivin-labs/sdk";
-import { AssertionFailure, assertNoPrototypePollution, runCheck } from "../helpers/report";
+import { AssertionFailure, assertNoPrototypePollution, runCheck, skip } from "../helpers/report";
 
 /**
  * `store` scope theo workspace+project+tenant (StoreSDK.resolveScope) — cần cả workspace_id VÀ
@@ -16,23 +16,31 @@ export async function testStore(): Promise<void> {
   const table = "test_sdk_probe";
   const key = `probe-${Date.now()}`;
 
+  // `get` phía dưới giả định `set` này đã ghi thật key `key` - nhưng ở môi trường thiếu
+  // project_id (xem comment đầu file), `set` tự nó throw lỗi nghiệp vụ nên KHÔNG ghi gì cả. Theo
+  // dõi kết quả thật của `set` để `get` không assert nhầm "phải khác null" trên 1 key chưa từng
+  // tồn tại - đó không phải bug của `get`, chỉ là hệ quả hợp lệ của `set` đã fail trước đó.
+  let setSucceeded = false;
   await runCheck(
     "store",
     "set",
-    () => store.set(table, key, { hello: "world", n: 42 }),
-    { expectBusinessError: true },
-  );
-
-  await runCheck(
-    "store",
-    "get",
     async () => {
-      const row = await store.get(table, key);
-      if (!row) throw new AssertionFailure(`get returned null for the key just set (${key})`);
-      return row;
+      const res = await store.set(table, key, { hello: "world", n: 42 });
+      setSucceeded = true;
+      return res;
     },
     { expectBusinessError: true },
   );
+
+  if (setSucceeded) {
+    await runCheck("store", "get", async () => {
+      const row = await store.get(table, key);
+      if (!row) throw new AssertionFailure(`get returned null for the key just set (${key})`);
+      return row;
+    });
+  } else {
+    skip("store", "get", "store.set above failed with a business error (missing project_id in this test account's context), so there's no key to verify get() against");
+  }
 
   await runCheck(
     "store",

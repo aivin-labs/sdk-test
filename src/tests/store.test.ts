@@ -1,46 +1,38 @@
 import { store } from "@aivin-labs/sdk";
-import { AssertionFailure, assertNoPrototypePollution, runCheck, skip } from "../helpers/report";
+import { AssertionFailure, assertNoPrototypePollution, runCheck } from "../helpers/report";
 
 /**
  * `store` scope theo workspace+project+tenant (StoreSDK.resolveScope) — cần cả workspace_id VÀ
- * project_id thật trong context, không chỉ client. mintCap() tự fetch cả 2 từ workspace đầu tiên
- * của tài khoản (`GET /workspace/list`) khi không truyền tay - nhưng chỉ khi workspace đó THẬT SỰ
- * có ít nhất 1 project (`workspace.projects[0]`). Tài khoản test hiện tại có workspace nhưng
- * `projects: []` (chưa tạo project nào qua UI), nên `project_id` vẫn `undefined` dù mintCap chạy
- * đúng - BE trả lỗi nghiệp vụ hợp lệ "Missing ... projectId ..." chứ không phải lỗi SDK. Theo
- * đúng convention của workspace.test.ts/task.test.ts/project.test.ts: chấp nhận lỗi nghiệp vụ khi
- * thiếu resource tiên quyết mà test-sdk không có quyền tự tạo (tạo project mới sẽ hiện thật trong
- * UI tenant, không có cách dọn sạch an toàn).
+ * project_id thật trong context, mintCap() tự lo việc đó (tự tạo project nếu workspace chưa có).
+ *
+ * `store.set()` KHÔNG tự tạo bảng nếu thiếu `schema` (xem `StoreService.ts`'s `ensureTable`:
+ * bảng chưa tồn tại + không có `schema` → throw "table not found", CÓ `schema` → tự tạo). Case
+ * "set" đầu tiên dưới đây truyền `schema` để bảng được tạo thật 1 lần — mọi `store.set()` sau đó
+ * trên cùng `table` tái sử dụng bảng đã tồn tại, không cần truyền lại schema.
  */
 export async function testStore(): Promise<void> {
   const table = "test_sdk_probe";
   const key = `probe-${Date.now()}`;
 
-  // `get` phía dưới giả định `set` này đã ghi thật key `key` - nhưng ở môi trường thiếu
-  // project_id (xem comment đầu file), `set` tự nó throw lỗi nghiệp vụ nên KHÔNG ghi gì cả. Theo
-  // dõi kết quả thật của `set` để `get` không assert nhầm "phải khác null" trên 1 key chưa từng
-  // tồn tại - đó không phải bug của `get`, chỉ là hệ quả hợp lệ của `set` đã fail trước đó.
-  let setSucceeded = false;
   await runCheck(
     "store",
     "set",
-    async () => {
-      const res = await store.set(table, key, { hello: "world", n: 42 });
-      setSucceeded = true;
-      return res;
-    },
-    { expectBusinessError: true },
+    () =>
+      store.set(table, key, { hello: "world", n: 42 }, undefined, {
+        name: "test_sdk_probe",
+        description: "Auto-created by test-sdk to verify the store round-trip.",
+        columns: [
+          { key: "hello", name: "hello", type: "string" },
+          { key: "n", name: "n", type: "number" },
+        ],
+      }),
   );
 
-  if (setSucceeded) {
-    await runCheck("store", "get", async () => {
-      const row = await store.get(table, key);
-      if (!row) throw new AssertionFailure(`get returned null for the key just set (${key})`);
-      return row;
-    });
-  } else {
-    skip("store", "get", "store.set above failed with a business error (missing project_id in this test account's context), so there's no key to verify get() against");
-  }
+  await runCheck("store", "get", async () => {
+    const row = await store.get(table, key);
+    if (!row) throw new AssertionFailure(`get returned null for the key just set (${key})`);
+    return row;
+  });
 
   await runCheck(
     "store",
@@ -106,7 +98,9 @@ export async function testStore(): Promise<void> {
       await store.set(table, overwriteKey, { version: 1 });
       await store.set(table, overwriteKey, { version: 2 });
       const row: any = await store.get(table, overwriteKey);
-      if (row?.version !== 2) {
+      // The written payload lands under row.data.* (see StoreService.storeSet's `$set` using
+      // `data.${k}` dot-notation), not at the row's top level.
+      if (row?.data?.version !== 2) {
         throw new AssertionFailure(`expected the second set() to win (version:2), got ${JSON.stringify(row)}`);
       }
       await store.del(table, overwriteKey);

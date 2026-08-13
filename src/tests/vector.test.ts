@@ -15,6 +15,16 @@ import { AssertionFailure, assertNoPrototypePollution, runCheck } from "../helpe
  * lặp lại; dùng label cố định để không tích rác qua nhiều lần chạy. Không có probe cho
  * approve/reject/archive — đó là admin action qua REST + SuperAdminGuard, khác hẳn kênh capability
  * token của plugin nên test-sdk (chạy như 1 plugin) không có quyền gọi được.
+ *
+ * `index` hiện luôn fail với "BRAIN.INDEX_DOCUMENT_FAILED" trên tài khoản test này - KHÔNG phải
+ * bug code (`VectorDBService.indexDocuments` đã tự động embed content thiếu embedding, đối xứng
+ * với `searchDocuments`). Root cause thật: `MilvusIO.ensureDatabase()` chặn tạo Milvus
+ * database/collection mới cho client chưa nằm trong whitelist Redis `registered_clients`
+ * (`checkClientRegistration`, MilvusIO.ts) - whitelist đó chỉ được nạp từ Organization có
+ * `status:'active'` trong Mongo (`MongoIO.ts`'s `populateRegisteredClientsFromDB`), mà tài khoản
+ * test này không thuộc Organization nào (cùng gốc rễ với `usage.getUsage`/`code.executeLogic`'s
+ * `CODE.ORG_ID_REQUIRED`). Cần Organization thật cho tài khoản test mới thấy round-trip `index`
+ * thành công.
  */
 export async function testVector(): Promise<void> {
   const probeId = `test-sdk-vector-probe-${Date.now()}`;

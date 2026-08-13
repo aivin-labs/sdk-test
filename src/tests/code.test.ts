@@ -2,10 +2,21 @@ import { code } from "@aivin-labs/sdk";
 import { AssertionFailure, assertNoPrototypePollution, runCheck } from "../helpers/report";
 
 /**
- * `executeLogic` chạy code sandbox nên chỉ đưa vào 1 đoạn logic vô hại (cộng 2 số) — nhưng handler
- * (`CodeSDK.ts`) đòi `ctx.user` bắt buộc, mà mintCap ở đây không cấp user thật, nên round-trip
- * chắc chắn dừng ở lỗi nghiệp vụ "missing user in context" trước khi chạm tới sandbox thật — vẫn
- * đủ để chứng minh transport/auth namespace này hoạt động đúng.
+ * `executeLogic` chạy code sandbox nên chỉ đưa vào 1 đoạn logic vô hại (cộng 2 số) — nhưng
+ * `CodeExecutorService.executeLogic()`'s dòng ĐẦU TIÊN đòi `user.org_id` (dùng cho billing/quota
+ * sandbox execution), mà tài khoản test này (workspace "Personal") không thuộc Organization nào —
+ * nên MỌI call ở đây (kể cả sandbox escape attempt/prototype pollution) đều dừng ở lỗi nghiệp vụ
+ * "CODE.ORG_ID_REQUIRED" trước khi chạm sandbox thật. Vẫn đủ để chứng minh transport/auth namespace
+ * này hoạt động đúng, nhưng KHÔNG chứng minh được isolated-vm có escape được hay không qua đường
+ * SDK này.
+ *
+ * Thuộc tính bảo mật thật sự (sandbox escape + prototype pollution containment) đã được verify
+ * RIÊNG, trực tiếp qua `IsolatedVmSandboxHelper.execute()` (bỏ qua tầng org/billing hoàn toàn vì
+ * đó không phải ranh giới bảo mật của sandbox) - cả 2 vector đều bị chặn đúng
+ * (`this.constructor.constructor('return process')`/`global.process`/`globalThis.process` đều
+ * throw "process is not defined"; `__proto__` qua args không làm ô nhiễm Object.prototype của host
+ * process). Không lặp lại verify đó ở đây vì cần tạo Organization thật cho tài khoản test - đổi
+ * trạng thái tài khoản lâu dài chỉ để chạy 1 test, không đáng.
  */
 export async function testCode(): Promise<void> {
   await runCheck(
